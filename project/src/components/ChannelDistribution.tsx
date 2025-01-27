@@ -1,4 +1,4 @@
-import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 
 const data = [
   { name: 'Traditional', value: 17.10 },
@@ -9,7 +9,14 @@ const data = [
   { name: 'Independente', value: 40.84 },
 ];
 
-const COLORS = ['#4a235a', '#6b3480', '#8e44ad', '#9b59b6', '#a569bd', '#bb8fce'];
+const COLORS = [
+  '#4a235a',
+  '#6b3480',
+  '#8e44ad',
+  '#9b59b6',
+  '#a569bd',
+  '#bb8fce',
+];
 
 export function ChannelDistribution() {
   return (
@@ -19,18 +26,18 @@ export function ChannelDistribution() {
           data={data}
           cx="50%"
           cy="50%"
-          innerRadius={40}
-          outerRadius={80}
+          innerRadius={50}
+          outerRadius={70}
           fill="#8884d8"
           dataKey="value"
-          label
+          label={({ name, value }) => `${value}%`}
+          paddingAngle={2}
         >
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
           ))}
         </Pie>
-        <Tooltip />
-        <Legend />
+        <Tooltip formatter={(value) => `${value}%`} />
       </PieChart>
     </ResponsiveContainer>
   );

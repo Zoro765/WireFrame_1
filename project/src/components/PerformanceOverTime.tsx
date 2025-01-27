@@ -21,7 +21,11 @@ export function PerformanceOverTime() {
       <LineChart data={data}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="month" />
-        <YAxis />
+        <YAxis
+          domain={[0, 15000000]} // Set Y-axis range up to 1,500,000,000
+          tickCount={6} // Number of evenly spaced ticks
+          tickFormatter={(value) => `${value / 1000000}M`} // Format ticks as "M" (millions)
+        />
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="MONDELEZ" stroke="#4a235a" strokeWidth={2} />
