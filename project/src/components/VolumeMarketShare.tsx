@@ -17,11 +17,21 @@ const data = [
 
 export function VolumeMarketShare() {
   return (
-    <ResponsiveContainer width="100%" height={300}>
+    <ResponsiveContainer width="100%" height={320}>
       <LineChart data={data}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="month" />
-        <YAxis domain={[0, 50]} />
+        <YAxis
+          domain={[0, 50]}
+          tickFormatter={(value) => `${value}%`}
+          label={{
+            value: "Market Share (%)",
+            angle: -90,
+            position: "outsideLeft", // Keeps the label outside the axis ticks
+            dx: -30, // Move label further to the left
+            dy: 5,   // Adjust vertical alignment if needed
+          }}
+        />
         <Tooltip />
         <Legend />
         <Line type="monotone" dataKey="MONDELEZ" stroke="#4a235a" strokeWidth={2} />
