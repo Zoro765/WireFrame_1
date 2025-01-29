@@ -17,7 +17,7 @@ const data = [
 
 export function PerformanceOverTime() {
   return (
-    <ResponsiveContainer width="100%" height={200}>
+    <ResponsiveContainer width="100%" height={270}>
       <LineChart data={data}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="month" />
@@ -25,6 +25,13 @@ export function PerformanceOverTime() {
           domain={[0, 15000000]} // Set Y-axis range up to 1,500,000,000
           tickCount={6} // Number of evenly spaced ticks
           tickFormatter={(value) => `${value / 1000000}M`} // Format ticks as "M" (millions)
+          label={{
+            value: "KPI (Millions)",
+            angle: -90,
+            position: "outsideLeft", // Keeps the label outside the axis ticks
+            dx: -30, // Move label further to the left
+            dy: 5,   // Adjust vertical alignment if needed
+          }}
         />
         <Tooltip />
         <Legend />
