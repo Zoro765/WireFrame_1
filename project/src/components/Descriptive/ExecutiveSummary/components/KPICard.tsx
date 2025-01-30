@@ -1,6 +1,7 @@
-import { ArrowDownIcon, ArrowUpIcon } from 'lucide-react';
+import React from 'react';
+import { TrendingDown, TrendingUp } from 'lucide-react';
 
-interface KPICardProps {
+interface MetricCardProps {
   mainLabel: string;
   value: string;
   yoyLabel: string;
@@ -11,7 +12,7 @@ interface KPICardProps {
   mdlzIsPositive?: boolean;
 }
 
-export function KPICard({
+export const MetricCard: React.FC<MetricCardProps> = ({
   mainLabel,
   value,
   yoyLabel,
@@ -20,130 +21,52 @@ export function KPICard({
   mdlzValue,
   mdlzYoyChange,
   mdlzIsPositive,
-}: KPICardProps) {
-  const isPositive = change >= 0;
-  const colorClass = isPositive ? 'text-green-600' : 'text-red-600';
-
-  return (
-    <div className="bg-white rounded-lg shadow-lg p-4 border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-      <div className="flex flex-col space-y-2">
-        {/* Main Label */}
-        <h3 className="text-lg font-medium text-gray-500">{mainLabel}</h3>
-
-        {/* Value and YoY Section */}
-        <div className="flex items-end justify-between">
-          <span className="text-3xl font-bold text-gray-900">{value}</span>
-          <div className="flex flex-col items-end">
-            <div className={`flex items-center space-x-1 text-base ${colorClass}`}>
-              {isPositive ? <ArrowUpIcon className="w-5 h-5" /> : <ArrowDownIcon className="w-5 h-5" />}
-              <span>({isPositive ? '+' : ''}{change}%)</span>
-            </div>
-            <div className={`text-lg ${colorClass}`}>{yoyLabel}</div>
-          </div>
+}) => (
+  <div className="bg-white rounded-lg shadow-md border border-gray-200">
+    {/* Main KPI Content */}
+    <div className="grid grid-cols-1 gap-0 p-1 px-10 py-1">
+      {/* First Row: Label and Value */}
+      <div className="flex items-center justify-between">
+        <div className="text-xs font-bold text-gray-900">{mainLabel}</div>
+        <div className="text-xs font-semibold text-gray-900">{value}</div>
+      </div>
+      {/* Second Row: YoY Change */}
+      <div className="flex items-center justify-between mt-1">
+        <div className="text-xs font-bold text-gray-900">YoY Change</div>
+        <div className="text-xs flex items-center text-sm">
+          {change > 0 ? (
+            <TrendingUp className="w-4 h-4 text-green-600" />
+          ) : (
+            <TrendingDown className="w-4 h-4 text-red-600" />
+          )}
+          <span className={change > 0 ? 'text-green-600' : 'text-red-600'}>{yoyLabel}</span>
         </div>
-
-        {/* Mondelez Metrics */}
-        {mdlzValue && mdlzYoyChange && mdlzIsPositive !== undefined && (
-          <div className="mt-4 border-t pt-4">
-            <h3 className="text-lg font-medium text-gray-500">{mdlzLabel}</h3>
-            <div className="flex items-end justify-between">
-              <span className="text-3xl font-bold text-gray-900">{mdlzValue}</span>
-              <div className="flex flex-col items-end">
-                <div className={`flex items-center space-x-1 text-base ${mdlzIsPositive ? 'text-green-600' : 'text-red-600'}`}>
-                  {mdlzIsPositive ? <ArrowUpIcon className="w-5 h-5" /> : <ArrowDownIcon className="w-5 h-5" />}
-                  <span>({mdlzIsPositive ? '+' : ''}{parseFloat(mdlzYoyChange.replace(/[()%]/g, ''))}%)</span>
-                </div>
-                <div className={`text-lg ${colorClass}`}>{mdlzYoyChange}</div>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </div>
-  );
-}
 
-
-
-// import { ArrowDownIcon, ArrowUpIcon } from 'lucide-react';
-
-// interface KPICardProps {
-//   mainLabel: string; // Main label for the KPI card (e.g., "Sell Out Volume")
-//   value: string; // Main value
-//   yoyLabel: string; // Year-over-Year label
-//   change: number; // Percentage change
-//   mdlzLabel?: string; // Label for the Mondelez metrics section (e.g., "Volume (Mdlz)")
-//   mdlzValue?: string; // Mondelez value
-//   mdlzYoyChange?: string; // Mondelez YoY change
-//   mdlzIsPositive?: boolean; // Mondelez change direction
-// }
-
-// export function KPICard({
-//   mainLabel,
-//   value,
-//   yoyLabel,
-//   change,
-//   mdlzLabel,
-//   mdlzValue,
-//   mdlzYoyChange,
-//   mdlzIsPositive,
-// }: KPICardProps) {
-//   const isPositive = change >= 0;
-
-//   return (
-//     <div className="bg-white rounded-lg shadow-sm p-4">
-//       <div className="flex flex-col">
-//         {/* Main Metrics */}
-//         <div className="mb-4">
-//           <h3 className="text-sm font-medium text-purple-900">{mainLabel}</h3>
-//           <div className="flex items-center justify-between">
-//             <span className="text-2xl font-bold text-gray-900">{value}</span>
-//             <div
-//               className={`flex items-center text-xs ${
-//                 isPositive ? 'text-green-600' : 'text-red-600'
-//               }`}
-//             >
-//               {isPositive ? (
-//                 <ArrowUpIcon className="w-4 h-4" />
-//               ) : (
-//                 <ArrowDownIcon className="w-4 h-4" />
-//               )}
-//               <span>({isPositive ? '+' : ''}{change}%)</span>
-//             </div>
-//           </div>
-//           <div className="text-xs text-gray-600 mt-1">
-//             {yoyLabel}
-//           </div>
-//         </div>
-
-//         {/* Mondelez Metrics */}
-//         {mdlzValue && mdlzYoyChange && mdlzIsPositive !== undefined && (
-//           <div className="mt-4 border-t pt-4">
-//             <h3 className="text-sm font-medium text-purple-900">{mdlzLabel}</h3>
-//             <div className="flex items-center justify-between">
-//               <span className="text-2xl font-bold text-gray-900">{mdlzValue}</span>
-//               <div
-//                 className={`flex items-center text-xs ${
-//                   mdlzIsPositive ? 'text-green-600' : 'text-red-600'
-//                 }`}
-//               >
-//                 {mdlzIsPositive ? (
-//                   <ArrowUpIcon className="w-4 h-4" />
-//                 ) : (
-//                   <ArrowDownIcon className="w-4 h-4" />
-//                 )}
-//                 <span>({mdlzIsPositive ? '+' : ''}{parseFloat(mdlzYoyChange.split(' ')[1].replace(/[()%]/g, ''))}%)</span>
-//               </div>
-//             </div>
-//             <div className="text-xs text-gray-600 mt-1">
-//               {mdlzYoyChange}
-//             </div>
-//           </div>
-//         )}
-//       </div>
-//     </div>
-//   );
-// }
-
-
-
+    {/* Mondelez KPI Section */}
+    {mdlzValue && (
+      <div className="border-t border-gray-300 p-1 bg-gray-50 rounded-b-md">
+        <div className="grid grid-cols-1 gap-0 px-9 py-1">
+          {/* First Row: Mondelez Label and Value */}
+          <div className="flex items-center justify-between">
+            <div className="text-xs font-bold text-purple-800">{mdlzLabel}</div>
+            <div className="text-xs font-semibold text-purple-800">{mdlzValue}</div>
+          </div>
+          {/* Second Row: Mondelez YoY Change */}
+          <div className="flex items-center justify-between mt-1">
+            <div className="text-xs font-bold text-purple-800">YoY Change</div>
+            <div className="text-xs flex items-center text-sm">
+              {mdlzIsPositive ? (
+                <TrendingUp className="w-4 h-4 text-green-600" />
+              ) : (
+                <TrendingDown className="w-4 h-4 text-red-600" />
+              )}
+              <span className={mdlzIsPositive ? 'text-green-600' : 'text-red-600'}>{mdlzYoyChange}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+);

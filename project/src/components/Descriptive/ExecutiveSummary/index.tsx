@@ -1,5 +1,5 @@
 import React from 'react';
-import { KPICard } from './components/KPICard';
+import { MetricCard } from './components/KPICard';
 import { VolumeMarketShare } from './components/VolumeMarketShare';
 import { ValueSalesQuarter } from './components/ValueSalesQuarter';
 import { RegionalSummary } from './components/RegionalSummary';
@@ -13,7 +13,7 @@ export function ExecutiveSummary() {
       {/* KPI Section */}
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
         {kpiData.map((kpi, index) => (
-          <KPICard key={index} {...kpi} />
+          <MetricCard key={index} {...kpi} />
         ))}
       </section>
 
