@@ -1,4 +1,4 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell } from 'recharts';
 
 const data = [
   { name: 'Independente', value: 12000000 },
@@ -8,6 +8,9 @@ const data = [
   { name: 'Hyper', value: 2000000 },
   { name: 'Super P', value: 1000000 },
 ];
+
+// Define an array of pastel colors for each bar
+const pastelColors = ['#B5D8EB', '#F7CAC9', '#C3E2C2', '#FFEEAD', '#E6B5C9', '#A2D5F2'];
 
 export function ValueSalesByChannel() {
   return (
@@ -22,16 +25,16 @@ export function ValueSalesByChannel() {
         <YAxis type="category" dataKey="name" />
         <Tooltip formatter={(value) => `R$${value}`} />
         <Legend />
-        <Bar dataKey="value" fill="#B5D8EB" name="Independente" /> {/* Pastel Blue */}
-        <Bar dataKey="value" fill="#F7CAC9" name="C&C" /> {/* Pastel Pink */}
-        <Bar dataKey="value" fill="#C3E2C2" name="Traditional" /> {/* Pastel Green */}
-        <Bar dataKey="value" fill="#FFEEAD" name="Super G" /> {/* Pastel Yellow */}
-        <Bar dataKey="value" fill="#E6B5C9" name="Hyper" /> {/* Pastel Purple */}
-        <Bar dataKey="value" fill="#A2D5F2" name="Super P" /> {/* Pastel Cyan */}
+        <Bar dataKey="value" name="KPI">
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={pastelColors[index % pastelColors.length]} />
+          ))}
+        </Bar>
       </BarChart>
     </ResponsiveContainer>
   );
 }
+
 
 
 // import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
