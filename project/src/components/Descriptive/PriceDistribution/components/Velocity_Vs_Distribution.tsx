@@ -1,5 +1,12 @@
 import React from 'react';
-import { ScatterChart,Scatter,Tooltip,CartesianGrid,XAxis,YAxis,ResponsiveContainer } from 'recharts';
+import { ScatterChart, Scatter, Tooltip, CartesianGrid, XAxis, YAxis, ResponsiveContainer, ZAxis } from 'recharts';
+
+interface VelocityData {
+  name: string;
+  velocity: number;
+  distribution: number;
+  size: number;
+}
 
 const data: VelocityData[] = [
   { name: "CLIGHT", velocity: 40, distribution: 58, size: 1000 },
@@ -12,55 +19,70 @@ const data: VelocityData[] = [
   { name: "OUTRA MARCA", velocity: 160, distribution: 12, size: 400 }
 ];
 
-interface VelocityData {
-  name: string;
-  velocity: number;
-  distribution: number;
+// Dark Pastel Purple Shades
+const colors = ['#6A0DAD', '#7D3C98', '#8E44AD', '#A569BD', '#76448A', '#5B2C6F', '#4A235A', '#613659'];
+
+interface BubbleProps {
+  cx: number;
+  cy: number;
   size: number;
+  fill: string;
+  name: string;
 }
 
-// Pastel color combination (as per your request)
-const colors = [
-  '#FFB3BA', '#FFDFBA', '#FFFFBA', '#BAFFC9', '#BAE1FF', '#D9BAFF', '#FFBAF0', '#FFC3A0'
-];
+// Custom Bubble Component
+const CustomBubble: React.FC<BubbleProps> = ({ cx, cy, size, fill, name }) => {
+  return (
+    <g>
+      {/* Outer Shadow for Depth */}
+      <circle cx={cx} cy={cy} r={size * 0.05} fill="rgba(0, 0, 0, 0.2)" />
+
+      {/* Main Bubble with Dark Pastel Purple */}
+      <circle cx={cx} cy={cy} r={size * 0.05} fill={fill} opacity={0.9} stroke="white" strokeWidth={2} />
+
+      {/* Label Below the Bubble */}
+      <text x={cx} y={cy + size * 0.07} textAnchor="middle" dy=".3em" fill="black" fontSize="12" fontWeight="bold">
+        {name}
+      </text>
+    </g>
+  );
+};
 
 export function Velocity_Vs_Distribution() {
   return (
     <ResponsiveContainer width="100%" height={400}>
       <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-                <CartesianGrid />
-                <XAxis 
-                  type="number" 
-                  dataKey="velocity" 
-                  name="Velocity"
-                  domain={[0, 220]}
-                  label={{ value: "Velocity", position: "bottom" }}
-                />
-                <YAxis 
-                  type="number" 
-                  dataKey="distribution" 
-                  name="Distribution"
-                  domain={[0, 60]}
-                  label={{ value: "Distribution %", angle: -90, position: "left" }}
-                />
-                <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-                <Scatter 
-                  name="Products" 
-                  data={data}
-                  fill="#663399"
-                  >
-                  {data.map((entry, index) => (
-                    <circle
-                      key={index}
-                      cx={0}
-                      cy={0}
-                      r={Math.sqrt(entry.size) / 10}
-                      fill="#663399"
-                      fillOpacity={0.6}
-                    />
-                  ))}
-                </Scatter>
-              </ScatterChart>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis 
+          type="number" 
+          dataKey="velocity" 
+          name="Velocity"
+          domain={[0, 220]}
+          label={{ value: "Velocity", position: "bottom", dy: 10 }}
+        />
+        <YAxis 
+          type="number" 
+          dataKey="distribution" 
+          name="Distribution"
+          domain={[0, 60]}
+          label={{ value: "Distribution %", angle: -90, position: "left", dx: 10,dy: -45 }}
+        />
+        <ZAxis 
+          type="number" 
+          dataKey="size" 
+          name="Bubble Size" 
+          range={[50, 400]} 
+        />
+        <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+        <Scatter 
+          name="Products" 
+          data={data} 
+          shape={(props) => {
+            const index = data.findIndex((d) => d.name === props.name);
+            return <CustomBubble {...props} fill={colors[index % colors.length]} />;
+          }}
+        />
+      </ScatterChart>
     </ResponsiveContainer>
   );
 }

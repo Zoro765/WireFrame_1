@@ -20,31 +20,72 @@ interface TimeSeriesData {
   avgPrice: number;
   weightedDistribution: number;
 }
+
 export function Price_Vs_Distribution_Change() {
   return (
     <ResponsiveContainer width="100%" height={300}>
       <LineChart data={data}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="month" />
-                <YAxis yAxisId="left" domain={['R$0.0', 'R$1.0']} />
-                <YAxis yAxisId="right" orientation="right" domain={[13, 16]} />
-                <Tooltip />
-                <Legend />
-                <Line
-                  yAxisId="left"
-                  type="monotone"
-                  dataKey="avgPrice"
-                  stroke="#663399"
-                  name="Avg Price Per Unit"
-                />
-                <Line
-                  yAxisId="right"
-                  type="monotone"
-                  dataKey="weightedDistribution"
-                  stroke="#9370DB"
-                  name="Weighted Distribution"
-                />
-              </LineChart>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis 
+          dataKey="month" 
+          label={{
+            value: "Month",
+            position: "bottom",
+            dy: 10, // Move label slightly down
+            dx: 0   // Keep label centered horizontally
+          }} 
+        />
+        <YAxis 
+          yAxisId="left" 
+          domain={['R$0.0', 'R$1.0']} 
+          label={{
+            value: "Avg Price Per Unit",
+            angle: -90,
+            position: "left",
+            dy: -45, // Adjust to move the label higher
+            dx: 8  // Adjust to move it further to the left
+          }}
+        />
+        <YAxis 
+          yAxisId="right" 
+          orientation="right" 
+          domain={[13, 16]} 
+          label={{
+            value: "Weighted Distribution",
+            angle: 90, // Rotate for right-side position
+            position: "right",
+            dy: 20,    // Adjust to move the label slightly lower
+            dx: 15     // Move label a bit more to the right
+          }}
+        />
+        <Tooltip />
+        
+        {/* Move legend to the upper left corner */}
+        <Legend 
+          layout="vertical"
+          align="left"
+          verticalAlign="top"
+          wrapperStyle={{
+            paddingTop: '10px',
+            paddingLeft: '10px'
+          }}
+        />
+        
+        <Line
+          yAxisId="left"
+          type="monotone"
+          dataKey="avgPrice"
+          stroke="#663399"
+          name="Avg Price Per Unit"
+        />
+        <Line
+          yAxisId="right"
+          type="monotone"
+          dataKey="weightedDistribution"
+          stroke="#9370DB"
+          name="Weighted Distribution"
+        />
+      </LineChart>
     </ResponsiveContainer>
   );
 }

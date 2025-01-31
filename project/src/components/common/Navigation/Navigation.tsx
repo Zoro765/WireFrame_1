@@ -48,9 +48,9 @@ const navigationData: NavItem[] = [
     label: 'Diagnostic',
     icon: <Brain size={18} />,
     subItems: [
-      { label: 'Model Evaluation 1', icon: <GanttChart size={18} /> },
-      { label: 'Model Evaluation 2', icon: <BarChart2 size={18} /> },
-      { label: 'Model Results', icon: <CircleDot size={18} /> },
+      { label: 'Model Evaluation 1', icon: <GanttChart size={18} />,path: '/model-evaluation-1' },
+      { label: 'Model Evaluation 2', icon: <BarChart2 size={18} />,path: '/model-evaluation-2' },
+      { label: 'Model Results', icon: <CircleDot size={18} />,path: '/model-reults' },
     ],
   },
   {
