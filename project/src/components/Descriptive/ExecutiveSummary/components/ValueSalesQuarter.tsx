@@ -37,7 +37,7 @@ const data = [
 
 export function ValueSalesQuarter() {
   return (
-    <ResponsiveContainer width="100%" height={320}>
+    <ResponsiveContainer width="100%" height="100%">
       <BarChart data={data}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="quarter" />

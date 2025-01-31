@@ -31,7 +31,7 @@ export function ExecutiveSummary() {
           <div className="bg-gray-200 rounded-t p-4">
             <h2 className="text-sm font-semibold">Volume Market Share</h2>
           </div>
-          <div className="p-4 h-[350px] w-full">
+          <div className="p-4 h-[250px] w-full">
             <VolumeMarketShare />
           </div>
         </div>
@@ -41,17 +41,19 @@ export function ExecutiveSummary() {
           <div className="bg-gray-200 rounded-t p-4">
             <h2 className="text-sm font-semibold">Value Sales - Quarter Analysis</h2>
           </div>
-          <div className="p-4 h-[350px] w-full">
+          <div className="p-4 h-[250px] w-full">
             <ValueSalesQuarter />
           </div>
         </div>
-
+      </div>
+      
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         {/* Bottom row pie charts - 25% total (12.5% each) */}
         <div className="lg:col-span-3 bg-white rounded shadow-sm">
           <div className="bg-gray-200 rounded-t p-4">
             <h2 className="text-sm font-semibold">Value Sales - Region Wise</h2>
           </div>
-          <div className="p-4 h-[300px] w-full">
+          <div className="p-4 h-[200px] w-full">
             <RegionalSummary />
           </div>
         </div>
@@ -60,7 +62,7 @@ export function ExecutiveSummary() {
           <div className="bg-gray-200 rounded-t p-4">
             <h2 className="text-sm font-semibold">Value Sales - Channel Wise</h2>
           </div>
-          <div className="p-4 h-[300px] w-full">
+          <div className="p-4 h-[200px] w-full">
             <ChannelDistribution />
           </div>
         </div>
@@ -70,11 +72,11 @@ export function ExecutiveSummary() {
           <div className="bg-gray-200 rounded-t p-4">
             <h2 className="text-sm font-semibold">Value Sales - Performance over time</h2>
           </div>
-          <div className="p-4 h-[300px] w-full">
+          <div className="p-4 h-[200px] w-full">
             <PerformanceOverTime />
           </div>
         </div>
-      </div>
+        </div>
     </>
   );
 }

@@ -29,7 +29,7 @@ export function CategorySummary() {
           <div className="bg-gray-200 rounded-t p-4">
             <h2 className="text-sm font-semibold">Volume Market Share</h2>
           </div>
-          <div className="p-4 h-[350px] w-full">
+          <div className="p-4 h-[259px] w-full">
             <ChannelAnalysis />
           </div>
         </div>
@@ -39,7 +39,7 @@ export function CategorySummary() {
           <div className="bg-gray-200 rounded-t p-4">
             <h2 className="text-sm font-semibold">Value Sales Analysis by Brand</h2>
           </div>
-          <div className="p-4 h-[350px] w-full">
+          <div className="p-4 h-[259px] w-full">
             <BrandAnalysis />
           </div>
         </div>
@@ -49,7 +49,7 @@ export function CategorySummary() {
           <div className="bg-gray-200 rounded-t p-4 ">
             <h2 className="text-sm font-semibold">Value Sales - Performance among Brands/PPGs</h2>
           </div>
-          <div className="p-4 h-[300px] w-full">
+          <div className="p-4 h-[259px] w-full">
             <PerformanceBrandPpg />
           </div>
         </div>
