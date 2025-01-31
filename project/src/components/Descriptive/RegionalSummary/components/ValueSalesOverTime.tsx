@@ -19,13 +19,13 @@ export function ValueSalesOverTime() {
   return (
     <ResponsiveContainer width="100%" height={300}>
       <LineChart data={data}
-        margin={{ top: 5,right: 5,left: 30,bottom: 5, }}
+        margin={{ top: 5,right: 5,left: 5,bottom: 5, }}
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="month" />
         <YAxis
-          tickFormatter={(value) => `R$${value / 1000000}M`}
-          label={{ value: 'Value Sales (R$M)', angle: -90, position: 'outsideLeft' , dx : -54 , dy : 5}}
+          tickFormatter={(value) => `${value / 1000000}`}
+          label={{ value: 'Value Sales (R$M)', angle: -90, position: 'outsideLeft' , dx : -14 , dy : 5}}
         />
         <Tooltip formatter={(value) => `R$${value}`} />
         <Legend />
