@@ -22,7 +22,6 @@ Ensure you have the following installed:
 1. Clone the repository:
    ```sh
    git clone <repo-url>
-   cd WireFrame_1-himanhsufeature/project
    ```
 2. Install dependencies:
    ```sh
