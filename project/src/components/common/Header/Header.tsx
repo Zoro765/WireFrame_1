@@ -35,6 +35,8 @@ export function Header() {
         return 'Price Evaluation (Patterns)';
       case '/profit-loss':
         return 'P&L';
+      case '/model-evaluation-1':
+        return 'Model Evaluation 1'
       default:
         return 'Executive Summary';
     }

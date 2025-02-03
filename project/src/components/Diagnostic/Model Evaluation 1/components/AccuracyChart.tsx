@@ -12,10 +12,9 @@ export function getAccuracyData(): AccuracyData[] {
 
 const AccuracyChart = () => {
   const data = getAccuracyData();
-
   return (
-    <div className="h-64 overflow-auto">
-      <table className="w-full">
+    <div className="h-full overflow-hidden">
+      <table className="w-full h-full">
         <thead className="bg-purple-50">
           <tr>
             <th className="text-left p-3 text-purple-900 font-semibold">Accuracy Percentage Bin</th>

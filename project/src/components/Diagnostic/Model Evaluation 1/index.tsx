@@ -1,4 +1,3 @@
-import React from 'react';
 import { KPICard } from './components/KPICard';
 import { kpiData } from './data/kpiData';
 import AccuracyChart from './components/AccuracyChart';
@@ -29,7 +28,7 @@ export function ModelEvaluation1() {
           <div className="bg-gray-200 rounded-t-lg p-4">
             <h2 className="text-sm font-semibold">Accuracy Distribution</h2>
           </div>
-          <div className="p-4 h-[280px] w-full">
+          <div className="p-4 h-[320px] w-full">
             <AccuracyChart />
           </div>
         </div>
@@ -39,7 +38,7 @@ export function ModelEvaluation1() {
           <div className="bg-gray-200 rounded-t-lg p-4">
             <h2 className="text-sm font-semibold">R-Square Distribution</h2>
           </div>
-          <div className="p-4 h-[280px] w-full">
+          <div className="p-4 h-[320px] w-full">
             <RSquareChart />
           </div>
         </div>
@@ -49,7 +48,7 @@ export function ModelEvaluation1() {
           <div className="bg-gray-200 rounded-t-lg p-4">
             <h2 className="text-sm font-semibold">MAPE Distribution</h2>
           </div>
-          <div className="p-4 h-[280px] w-full">
+          <div className="p-4 h-[320px] w-full">
             <MAPEChart />
           </div>
         </div>

@@ -1,5 +1,3 @@
-import React from 'react';
-
 export function ModelResults() {
   return (
     <div className="bg-white rounded shadow-sm p-4">

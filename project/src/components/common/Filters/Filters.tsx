@@ -2,11 +2,7 @@ import React from 'react';
 
 export function Filters({ isVisible, toggleVisibility }) {
   return (
-    <div
-      className="fixed right-0 top-1/8 transition-all duration-300 z-50"
-      onMouseEnter={() => toggleVisibility(true)}
-      onMouseLeave={() => toggleVisibility(false)}
-    >
+    <div className="fixed right-0 top-1/8 transition-all duration-300 z-50">
       <div
         className={`flex transition-all duration-300 ${
           isVisible ? 'translate-x-0' : 'translate-x-[calc(100%-2.5rem)]'
@@ -15,6 +11,7 @@ export function Filters({ isVisible, toggleVisibility }) {
         <div
           className="bg-purple-900 p-2 text-white cursor-pointer rounded-l-lg shadow-md hover:bg-purple-800 transition-colors duration-200 flex items-center justify-center"
           style={{ width: '40px', height: '40px' }}
+          onClick={() => toggleVisibility(!isVisible)} // Toggle visibility on click
         >
           <svg
             width="24"

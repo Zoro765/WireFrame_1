@@ -17,7 +17,7 @@ const RSquareChart = () => {
   const total = data.reduce((sum, item) => sum + item.count, 0);
 
   return (
-    <div className="h-64 overflow-auto">
+    <div className="h-64"> {/* Removed overflow-auto */}
       <table className="w-full">
         <thead className="bg-purple-50">
           <tr>
