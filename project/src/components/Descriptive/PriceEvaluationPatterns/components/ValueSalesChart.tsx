@@ -1,4 +1,4 @@
-import { BarChart, Bar, LineChart, Line, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart } from 'recharts';
+import { Bar,  Line,  XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart } from 'recharts';
 
 // Data for Value Sales over Time & Avg Price Per Unit
 const valueSalesData = [
@@ -39,12 +39,12 @@ export function ValueSalesChart() {
                     angle: -90, 
                     position: "insideRight",
                     dx: -10, // Move label further to the left
-                    dy: -45,   // Adjust vertical alignment if needed
+                    dy: -55,   // Adjust vertical alignment if needed
                      }} />
                 <Tooltip />
                 <Legend />
                 <Bar yAxisId="left" dataKey="sales" name="Value Sales" fill="#6B46C1" barSize={30} />
-                <Line yAxisId="right" type="monotone" dataKey="price" name="Avg Price Per Unit" stroke="#FF7300" strokeWidth={2} />
+                <Line yAxisId="right" type="monotone" dataKey="price" name="Avg Price Per Unit" stroke="#a219d4" strokeWidth={2} />
             </ComposedChart>
         </ResponsiveContainer>
     );

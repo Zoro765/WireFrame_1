@@ -46,7 +46,7 @@ export function ValueSalesPriceIncentive() {
         {/* Line Chart for KPI Trends */}
         <Line type="monotone" dataKey="kpi" name="KPI Trend" stroke="#6B46C1" strokeWidth={2} />
         {/* Scatter Chart for Data Points */}
-        <Scatter dataKey="kpi" fill="#FF5733" name="KPI Data Points" />
+        <Scatter dataKey="kpi" fill="#a219d4" name="KPI Data Points" />
       </ComposedChart>
     </ResponsiveContainer>
   );

@@ -1,4 +1,3 @@
-import React from 'react';
 import { MetricCard } from './components/KPICard';
 import { ChannelAnalysis } from './components/VolumeMarketShare';
 import { BrandAnalysis} from './components/BrandAnalysis';

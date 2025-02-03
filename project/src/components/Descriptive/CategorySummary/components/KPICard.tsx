@@ -14,18 +14,18 @@ export const MetricCard: React.FC<MetricCardProps> = ({
   yoyLabel,
   change,
 }) => (
-  <div className="bg-white rounded-lg shadow-md border border-gray-200">
+  <div className="bg-white rounded-lg shadow-md border border-gray-200 h-18 min-w-[200px]">
     {/* Main KPI Content */}
-    <div className="grid grid-cols-1 gap-0 p-1 px-10 py-1">
+    <div className="grid grid-cols-1 h-100 gap-0 p-1 px-10 py-1">
       {/* First Row: Label and Value */}
       <div className="flex items-center justify-between">
-        <div className="text-xs font-bold text-gray-900">{mainLabel}</div>
-        <div className="text-xs font-semibold text-gray-900">{value}</div>
+        <div className="text-lg font-bold text-gray-900">{mainLabel}</div>
+        <div className="text-lg font-semibold text-gray-900">{value}</div>
       </div>
       {/* Second Row: YoY Change */}
       <div className="flex items-center justify-between mt-1">
-        <div className="text-xs font-bold text-gray-900">YoY Change</div>
-        <div className="text-xs flex items-center text-sm">
+        <div className="text-lg font-bold text-gray-900">YoY Change</div>
+        <div className="text-lg flex items-center text-lg">
           {change > 0 ? (
             <TrendingUp className="w-4 h-4 text-green-600" />
           ) : (

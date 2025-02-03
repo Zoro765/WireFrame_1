@@ -12,6 +12,9 @@ import { PriceDistribution } from './components/Descriptive/PriceDistribution';
 import { PriceEvaluation } from './components/Descriptive/PriceEvaluation';
 import { PriceEvaluationPatterns } from './components/Descriptive/PriceEvaluationPatterns';
 import { ProfitLoss } from './components/Descriptive/ProfitLoss';
+import { ModelEvaluation1 } from './components/Diagonistic/ModelEvaluation1';
+import { ModelEvaluation2 } from './components/Diagonistic/ModelEvaluation2';
+import { ModelResults } from './components/Diagonistic/Model Results';
 
 function App() {
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
@@ -43,6 +46,10 @@ function App() {
                 <Route path="/price-evaluation" element={<PriceEvaluation />} />
                 <Route path="/price-evaluation-patterns" element={<PriceEvaluationPatterns />} />
                 <Route path="/profit-loss" element={<ProfitLoss />} />
+                {/* Diagnostic Routes */}
+                <Route path="/Model-Evaluation-1" element={<ModelEvaluation1 />} />
+                <Route path="/Model-Evaluation-2" element={<ModelEvaluation2 />} />
+                <Route path="/Model-Results" element={<ModelResults />} />
               </Routes>
             </div>
 

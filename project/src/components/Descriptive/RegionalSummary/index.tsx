@@ -1,5 +1,4 @@
-import React from 'react';
-import { KPICard } from './components/KPICard';
+import { MetricCard } from './components/KPICard';
 import { ValueSalesByRegion } from './components/ValueSalesByRegion';
 import { ValueSalesByChannel } from './components/ValueSalesByChannel';
 import { ValueSalesOverTime } from './components/ValueSalesOverTime';
@@ -11,7 +10,7 @@ export function RegionalSummary() {
       {/* KPI Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {kpiData.map((kpi, index) => (
-          <KPICard key={index} {...kpi} />
+          <MetricCard key={index} {...kpi} />
         ))}
       </div>
 
