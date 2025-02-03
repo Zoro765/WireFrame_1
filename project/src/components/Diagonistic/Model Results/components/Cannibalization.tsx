@@ -91,10 +91,7 @@ const HeatMap = ({ data, title }) => {
 
   return (
     <Card className="w-full h-full">
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-      </CardHeader>
-      <CardContent>
+     <CardContent>
         <div className="w-full overflow-x-auto">
           <div className="min-w-max">
             <table className="w-full border-collapse">

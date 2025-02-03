@@ -26,7 +26,7 @@ export function ModelResults() {
           <div className="bg-gray-200 rounded-t p-4">
             <h2 className="text-sm font-semibold">Cannibalization</h2>
           </div>
-          <div className="p-4 h-[650px] w-full">
+          <div className="p-4 h-[600px] w-full">
             <Cannibalization />
           </div>
         </div>       
