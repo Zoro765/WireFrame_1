@@ -37,6 +37,8 @@ export function Header() {
         return 'P&L';
       case '/model-evaluation-1':
         return 'Model Evaluation 1'
+      case '/model-evaluation-2':
+        return 'Model Evaluation 2'
       default:
         return 'Executive Summary';
     }

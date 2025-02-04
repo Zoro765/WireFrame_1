@@ -43,74 +43,28 @@ const VolumeDecompositionChart = () => {
   const data = getVolumeDecompositionData();
 
   return (
-    <div className="bg-white p-4 rounded shadow-sm mt-6">
+    <div className="bg-white p-4 rounded shadow-sm mt-6 w-[90%] mx-auto">
       <h2 className="text-base font-semibold mb-4 text-gray-900">Volume Decomposition</h2>
       <div className="h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+          <BarChart data={data} margin={{ top: 5, right: 30, left: 40, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
-            <XAxis 
-              dataKey="month" 
-              tick={{ fill: '#6b7280' }}
-              axisLine={{ stroke: '#e5e7eb' }}
-            />
+            <XAxis dataKey="month" tick={{ fill: '#6b7280' }} axisLine={{ stroke: '#e5e7eb' }} />
             <YAxis 
               tick={{ fill: '#6b7280' }}
               axisLine={{ stroke: '#e5e7eb' }}
-              tickFormatter={(value) => `${(value / 1000000).toFixed(2)}M`}
+              domain={[0, 20000]} // Restrict Y-axis from 0 to 20000
+              label={{ value: 'Volume', angle: -90, position: 'outsideLeft', fill: '#6b7280', dy: -10 ,dx: -60}}
             />
-            <Tooltip 
-              contentStyle={{ 
-                backgroundColor: 'white',
-                border: '1px solid #e5e7eb',
-                borderRadius: '4px',
-              }}
-              formatter={(value: any) => value.toLocaleString()}
-            />
-            <Legend 
-              verticalAlign="top" 
-              height={36}
-              iconType="rect"
-              wrapperStyle={{
-                paddingBottom: '20px',
-              }}
-            />
-            <Bar 
-              dataKey="holidaysAndEvents" 
-              name="Holidays & Events" 
-              stackId="a" 
-              fill="#7c3aed"
-            />
-            <Bar 
-              dataKey="priceCompetitorEffect" 
-              name="Price - Competitor Effect" 
-              stackId="a" 
-              fill="#22c55e"
-            />
-            <Bar 
-              dataKey="priceCrossChannelEffect" 
-              name="Price - Cross Channel Effect" 
-              stackId="a" 
-              fill="#eab308"
-            />
-            <Bar 
-              dataKey="pricePortfolioCanibalization" 
-              name="Price - Portfolio Canibalization" 
-              stackId="a" 
-              fill="#ef4444"
-            />
-            <Bar 
-              dataKey="base" 
-              name="BASE" 
-              stackId="a" 
-              fill="#3b82f6"
-            />
-            <Bar 
-              dataKey="priceOwnImpact" 
-              name="Price - Own Impact" 
-              stackId="a" 
-              fill="#14b8a6"
-            />
+            <Tooltip contentStyle={{ backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '4px' }} />
+            <Legend verticalAlign="top" height={36} iconType="rect" wrapperStyle={{ paddingBottom: '20px' }} />
+            
+            <Bar dataKey="holidaysAndEvents" name="Holidays & Events" stackId="a" fill="#6A5ACD" barSize={120} />
+            <Bar dataKey="priceCompetitorEffect" name="Price - Competitor Effect" stackId="a" fill="#4682B4" barSize={120} />
+            <Bar dataKey="priceCrossChannelEffect" name="Price - Cross Channel Effect" stackId="a" fill="#9ACD32" barSize={120} />
+            <Bar dataKey="pricePortfolioCanibalization" name="Price - Portfolio Canibalization" stackId="a" fill="#CD5C5C" barSize={120} />
+            <Bar dataKey="base" name="BASE" stackId="a" fill="#8B008B" barSize={120} />
+            <Bar dataKey="priceOwnImpact" name="Price - Own Impact" stackId="a" fill="#FF8C00" barSize={120} />
           </BarChart>
         </ResponsiveContainer>
       </div>
