@@ -50,20 +50,20 @@ const navigationData: NavItem[] = [
     subItems: [
       { label: 'Model Evaluation 1', icon: <GanttChart size={18} />,path: '/model-evaluation-1' },
       { label: 'Model Evaluation 2', icon: <BarChart2 size={18} />,path: '/model-evaluation-2' },
-      { label: 'Model Results', icon: <CircleDot size={18} />,path: '/model-reults' },
+      { label: 'Model Results', icon: <CircleDot size={18} />,path: '/model-results' },
     ],
   },
   {
     label: 'Predictive & Prescriptive',
     icon: <Target size={18} />,
     subItems: [
-      { label: 'Optimization Guide', icon: <Settings size={18} /> },
-      { label: 'Task Summary', icon: <ClipboardList size={18} /> },
-      { label: 'Simulation/Optimization', icon: <Calculator size={18} /> },
-      { label: 'Scenario Summary', icon: <Table size={18} /> },
+      { label: 'Optimization Guide', icon: <Settings size={18} />,path: '/optimization-guide' },
+      { label: 'Task Summary', icon: <ClipboardList size={18} /> ,path: '/task-summary'},
+      { label: 'Simulation/Optimization', icon: <Calculator size={18} />,path: '/simulation-optimization'},
+      { label: 'Scenario Summary', icon: <Table size={18} />,path: '/scenario-summary' },
       {
         label: 'Scenario Review',
-        icon: <ArrowDownUp size={18} />,
+        icon: <ArrowDownUp size={18} />,path: '/scenario-review',
         subItems: [
           { label: 'Scenario Overall Results', icon: <BarChart3 size={18} /> },
           { label: 'MFG P&L Waterfall', icon: <LineChart size={18} /> },

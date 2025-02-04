@@ -15,6 +15,7 @@ import { ProfitLoss } from './components/Descriptive/ProfitLoss';
 import { ModelEvaluation1 } from './components/Diagnostic/Model Evaluation 1';
 import { ModelEvaluation2 } from './components/Diagnostic/Model Evaluation 2';
 import { ModelResults } from './components/Diagnostic/Model Results';
+import { ScenarioSummary } from './components/Predictive & Prescriptive/Scenario Summary';
 
 function App() {
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
@@ -50,6 +51,14 @@ function App() {
                 <Route path="/model-evaluation-1" element={<ModelEvaluation1 />} />
                 <Route path="/model-evaluation-2" element={<ModelEvaluation2 />} />
                 <Route path="/model-results" element={<ModelResults />} />
+                {/* Predictive & Perscriptive */}
+                {/* <Route path="/optimization-guide" element={<OptimizationGuide />} /> */}
+                {/* <Route path="/optimization-guide" element={<OptimizationGuide />} /> */}
+                {/* <Route path="/scenario-summary" element={<ScenarioReview />} /> */}
+                <Route path="/scenario-summary" element={<ScenarioSummary />} />
+                {/* <Route path="/scenario-summary" element={<Simulation />} /> */}
+                {/* <Route path="/scenario-summary" element={<TaskSummary />} /> */}
+
               </Routes>
             </div>
 

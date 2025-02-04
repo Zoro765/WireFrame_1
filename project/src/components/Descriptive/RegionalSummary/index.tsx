@@ -1,4 +1,3 @@
-import React from 'react';
 import { KPICard } from './components/KPICard';
 import { ValueSalesByRegion } from './components/ValueSalesByRegion';
 import { ValueSalesByChannel } from './components/ValueSalesByChannel';
@@ -33,7 +32,7 @@ export function RegionalSummary() {
         </div>
       </div>
 
-      <div className="lg:col-span-3 bg-white rounded shadow-sm">
+      <div className="lg:col-span-0 bg-white rounded shadow-sm">
         <div className="bg-gray-200 rounded-t p-4">
           <h2 className="text-sm font-semibold">Value Sales Performance by Channel</h2>
         </div>
@@ -46,7 +45,7 @@ export function RegionalSummary() {
         <div className="bg-gray-200 rounded-t p-4">
           <h2 className="text-sm font-semibold">Value Sales by Region Across Time</h2>
         </div>
-        <div className="p-4 h-[320px] w-full">
+        <div className="p-4 h-[320px] w-half">
           <ValueSalesOverTime />
         </div>
       </div>
