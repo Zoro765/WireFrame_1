@@ -59,6 +59,14 @@ const ActualVsPredictedSalesChart = () => {
               tick={{ fill: '#6b7280' }}
               axisLine={{ stroke: '#e5e7eb' }}
               tickFormatter={(value) => `${(value / 1_000_000).toFixed(1)}M`}
+              label={{
+                value: "Volume (Millions)",
+                angle: -90,
+                position: "insideLeft",
+                style: { fill: "#6b7280", fontSize: 12 },
+                dx:-5,
+                dy:40
+              }}
             />
             <YAxis 
               yAxisId="right" 
@@ -66,6 +74,14 @@ const ActualVsPredictedSalesChart = () => {
               tick={{ fill: '#6b7280' }}
               axisLine={{ stroke: '#e5e7eb' }}
               tickFormatter={(value) => `R$${value.toFixed(2)}`}
+              label={{
+                value: "Avg Price Per Unit (R$)",
+                angle: -90,
+                position: "insideRight",
+                style: { fill: "#6b7280", fontSize: 12 },
+                dx:20,
+                dy:-60
+              }}
             />
             <Tooltip 
               contentStyle={{ 

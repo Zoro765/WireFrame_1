@@ -46,7 +46,7 @@ export function ModelEvaluation1() {
         {/* MAPE Chart */}
         <div className="lg:col-span-6 bg-white rounded-lg shadow-sm">
           <div className="bg-gray-200 rounded-t-lg p-4">
-            <h2 className="text-sm font-semibold">MAPE Distribution</h2>
+            <h2 className="text-sm font-semibold">MAPE</h2>
           </div>
           <div className="p-4 h-[320px] w-full">
             <MAPEChart />

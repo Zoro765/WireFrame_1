@@ -53,8 +53,10 @@ const VolumeDecompositionChart = () => {
             <YAxis 
               tick={{ fill: '#6b7280' }}
               axisLine={{ stroke: '#e5e7eb' }}
-              domain={[0, 20000]} // Restrict Y-axis from 0 to 20000
-              label={{ value: 'Volume', angle: -90, position: 'outsideLeft', fill: '#6b7280', dy: -10 ,dx: -60}}
+              domain={[0, 20000000]} // Set Y-axis range from 0 to 20,000,000
+              ticks={[0, 10000000, 20000000]} // Define specific tick labels
+              tickFormatter={(value) => value.toLocaleString()} // Format with commas
+              label={{ value: 'Volume', angle: -90, position: 'outsideLeft', fill: '#6b7280', dy: 20 ,dx: -65 }}
             />
             <Tooltip contentStyle={{ backgroundColor: 'white', border: '1px solid #e5e7eb', borderRadius: '4px' }} />
             <Legend verticalAlign="top" height={36} iconType="rect" wrapperStyle={{ paddingBottom: '20px' }} />
@@ -70,6 +72,7 @@ const VolumeDecompositionChart = () => {
       </div>
     </div>
   );
+  
 };
 
 export default VolumeDecompositionChart;
