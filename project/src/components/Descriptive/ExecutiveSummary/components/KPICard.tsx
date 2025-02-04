@@ -4,10 +4,12 @@ import { TrendingDown, TrendingUp } from 'lucide-react';
 interface MetricCardProps {
   mainLabel: string;
   value: string;
+  subLabel: string;
   yoyLabel: string;
   change: number;
   mdlzLabel?: string;
   mdlzValue?: string;
+  mdlzsubLabel?: string;
   mdlzYoyChange?: string;
   mdlzIsPositive?: boolean;
 }
@@ -15,10 +17,12 @@ interface MetricCardProps {
 export const MetricCard: React.FC<MetricCardProps> = ({
   mainLabel,
   value,
+  subLabel,
   yoyLabel,
   change,
   mdlzLabel,
   mdlzValue,
+  mdlzsubLabel,
   mdlzYoyChange,
   mdlzIsPositive,
 }) => (
@@ -27,12 +31,12 @@ export const MetricCard: React.FC<MetricCardProps> = ({
     <div className="grid grid-cols-1 gap-0 p-1 px-10 py-1">
       {/* First Row: Label and Value */}
       <div className="flex items-center justify-between">
-        <div className="text-lg font-bold text-gray-900">{mainLabel}</div>
+        <div className="text-lg font-semibold text-gray-900">{mainLabel}</div>
         <div className="text-lg font-semibold text-gray-900">{value}</div>
       </div>
       {/* Second Row: YoY Change */}
       <div className="flex items-center justify-between mt-1">
-        <div className="text-lg font-bold text-gray-900">YoY Change</div>
+        <div className="text-lg font-semibold text-gray-900">{subLabel}</div>
         <div className="text-lg flex items-center text-lg">
           {change > 0 ? (
             <TrendingUp className="w-4 h-4 text-green-600" />
@@ -50,12 +54,12 @@ export const MetricCard: React.FC<MetricCardProps> = ({
         <div className="grid grid-cols-1 gap-0 px-9 py-1">
           {/* First Row: Mondelez Label and Value */}
           <div className="flex items-center justify-between">
-            <div className="text-lg font-bold text-purple-800">{mdlzLabel}</div>
+            <div className="text-lg font-semibold text-purple-800">{mdlzLabel}</div>
             <div className="text-lg font-semibold text-purple-800">{mdlzValue}</div>
           </div>
           {/* Second Row: Mondelez YoY Change */}
           <div className="flex items-center justify-between mt-1">
-            <div className="text-lg font-bold text-purple-800">YoY Change</div>
+            <div className="text-lg font-semibold text-purple-800">{mdlzsubLabel}</div>
             <div className="text-lg flex items-center text-lg">
               {mdlzIsPositive ? (
                 <TrendingUp className="w-4 h-4 text-green-600" />

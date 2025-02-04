@@ -1,3 +1,4 @@
+//Header.jsx
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Info } from 'lucide-react';
@@ -5,12 +6,12 @@ import { Info } from 'lucide-react';
 export function Header() {
   const [activeButton, setActiveButton] = useState<string | null>(null);
   const [showSecondaryNav, setShowSecondaryNav] = useState(false);
-  const [secondaryNavType, setSecondaryNavType] = useState<'Descriptive' | 'Diagnostics' | null>(null); // Track which secondary nav to show
+  const [secondaryNavType, setSecondaryNavType] = useState<'Descriptive' | 'Diagnostics' | 'Predictive & Prescriptive' | null>(null); // Track which secondary nav to show
   const location = useLocation(); // Get the current route location
 
   const handleButtonClick = (buttonName: string) => {
     setActiveButton(buttonName);
-    if (buttonName === 'Descriptive' || buttonName === 'Diagnostics') {
+    if (buttonName === 'Descriptive' || buttonName === 'Diagnostics' || buttonName === 'Predictive & Prescriptive') {
       setShowSecondaryNav(!showSecondaryNav);
       setSecondaryNavType(buttonName); // Set the type of secondary nav
     } else {
@@ -46,6 +47,17 @@ export function Header() {
         return 'Model Evaluation (2/2)';
       case '/model-results':
         return 'Model Results';
+      // Predictive & Prescriptive Routes
+      case '/Optimization-Guide':
+        return 'Optimization Guide';
+      case '/Task-Summary':
+        return 'Task Summary';
+      case '/Simulation-Optimization':
+        return 'Simulation/Optimization';
+      case '/Scenario-Summary':
+        return 'Scenario Summary';
+      case '/Scenario-Results':
+        return 'Scenario Results';
       default:
         return 'Executive Summary';
     }
@@ -210,7 +222,56 @@ export function Header() {
                 </Link>
               </>
             )}
-          </div>
+            {secondaryNavType === 'Predictive & Prescriptive' && (
+              <>
+                <Link
+                  to="/Optimization-Guide"
+                  className={`px-4 py-1.5 ${
+                    activeButton === 'Optimization Guide' ? 'bg-purple-100 shadow-inner' : 'bg-white'
+                  } rounded-md hover:bg-purple-50 hover:shadow-md transition-all duration-300 font-medium whitespace-nowrap`}
+                  onClick={() => setActiveButton('Optimization Guide')}
+                >
+                  Optimization Guide
+                </Link>
+                <Link
+                  to="/Task-Summary"
+                  className={`px-4 py-1.5 ${
+                    activeButton === 'Task Summary' ? 'bg-purple-100 shadow-inner' : 'bg-white'
+                  } rounded-md hover:bg-purple-50 hover:shadow-md transition-all duration-300 font-medium whitespace-nowrap`}
+                  onClick={() => setActiveButton('Task Summary')}
+                >
+                  Task Summary
+                </Link>
+                <Link
+                  to="/Simulation-Optimization"
+                  className={`px-4 py-1.5 ${
+                    activeButton === 'Simulation/Optimization' ? 'bg-purple-100 shadow-inner' : 'bg-white'
+                  } rounded-md hover:bg-purple-50 hover:shadow-md transition-all duration-300 font-medium whitespace-nowrap`}
+                  onClick={() => setActiveButton('Simulation/Optimization')}
+                >
+                  Simulation/Optimization
+                </Link>
+                <Link
+                  to="/Scenario-Summary"
+                  className={`px-4 py-1.5 ${
+                    activeButton === 'Scenario Summary' ? 'bg-purple-100 shadow-inner' : 'bg-white'
+                  } rounded-md hover:bg-purple-50 hover:shadow-md transition-all duration-300 font-medium whitespace-nowrap`}
+                  onClick={() => setActiveButton('Scenario Summary')}
+                >
+                  Scenario Summary
+                </Link>
+                <Link
+                  to="/Scenario-Overall-Results"
+                  className={`px-4 py-1.5 ${
+                    activeButton === 'Scenario Results' ? 'bg-purple-100 shadow-inner' : 'bg-white'
+                  } rounded-md hover:bg-purple-50 hover:shadow-md transition-all duration-300 font-medium whitespace-nowrap`}
+                  onClick={() => setActiveButton('Scenario Results')}
+                >
+                  Scenario Results
+                </Link>
+              </>
+            )}
+           </div>
         </div>
       )}
     </div>

@@ -1,10 +1,9 @@
 import React from 'react';
-
-import { clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 const Card = React.forwardRef(({ className, ...props }, ref) => (
@@ -16,43 +15,22 @@ const Card = React.forwardRef(({ className, ...props }, ref) => (
     )}
     {...props}
   />
-))
-Card.displayName = "Card"
-
-const CardHeader = React.forwardRef(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex flex-col space-y-1.5 p-6", className)}
-    {...props}
-  />
-))
-CardHeader.displayName = "CardHeader"
-
-const CardTitle = React.forwardRef(({ className, ...props }, ref) => (
-  <h3
-    ref={ref}
-    className={cn(
-      "text-2xl font-semibold leading-none tracking-tight",
-      className
-    )}
-    {...props}
-  />
-))
-CardTitle.displayName = "CardTitle"
+));
+Card.displayName = "Card";
 
 const CardContent = React.forwardRef(({ className, ...props }, ref) => (
   <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
-))
-CardContent.displayName = "CardContent"
+));
+CardContent.displayName = "CardContent";
 
-const HeatMap = ({ data, title }) => {
+const HeatMap = ({ data }) => {
   const getUniqueDimensions = (data) => {
     const rows = new Set();
     const cols = new Set();
     
-    data.forEach(item => {
-      rows.add(item.row);
-      cols.add(item.col);
+    data.forEach(({ channel, ppg }) => {
+      rows.add(`${channel} - ${ppg}`);
+      cols.add(`${channel} - ${ppg}`);
     });
     
     return {
@@ -62,7 +40,7 @@ const HeatMap = ({ data, title }) => {
   };
 
   const getCellValue = (row, col) => {
-    const cell = data.find(item => item.row === row && item.col === col);
+    const cell = data.find(item => `${item.channel} - ${item.ppg}` === row && `${item.affectedChannel} - ${item.affectedPpg}` === col);
     return cell ? cell.value : null;
   };
 
@@ -79,7 +57,7 @@ const HeatMap = ({ data, title }) => {
         className="p-2 text-center"
         style={{
           backgroundColor: getBackgroundColor(value),
-          color: value > 1.0 ? 'white' : 'black'
+          color: value > 2.0 ? 'white' : 'black'
         }}
       >
         {value.toFixed(2)}
@@ -91,34 +69,32 @@ const HeatMap = ({ data, title }) => {
 
   return (
     <Card className="w-full h-full">
-     <CardContent>
+      <CardContent>
         <div className="w-full overflow-x-auto">
-          <div className="min-w-max">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="bg-gray-50">
-                  <th className="border p-2"> </th>
+          <table className="w-full border-collapse">
+            <thead>
+              <tr className="bg-gray-50">
+                <th className="border p-2"> </th>
+                {cols.map(col => (
+                  <th key={col} className="border p-2 min-w-[150px] text-sm">
+                    {col}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row) => (
+                <tr key={row}>
+                  <td className="border p-2 text-sm font-medium">{row}</td>
                   {cols.map(col => (
-                    <th key={col} className="border p-2 min-w-[100px] text-sm">
-                      {col}
-                    </th>
+                    <td key={`${row}-${col}`} className="border p-2">
+                      {renderCell(getCellValue(row, col))}
+                    </td>
                   ))}
                 </tr>
-              </thead>
-              <tbody>
-                {rows.map((row) => (
-                  <tr key={row}>
-                    <td className="border p-2 text-sm">{row}</td>
-                    {cols.map(col => (
-                      <td key={`${row}-${col}`} className="border p-2">
-                        {renderCell(getCellValue(row, col))}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </div>
       </CardContent>
     </Card>
@@ -127,15 +103,15 @@ const HeatMap = ({ data, title }) => {
 
 export function Cannibalization() {
   const sampleData = [
-    { row: "C&C-FRISCO251NAD PROMOCAO", col: "FRISCO251NAD PROMOCAO", value: 1.01 },
-    { row: "C&C-MARATA301NAD PROMOCAO", col: "MARATA301NAD PROMOCAO", value: 0.74 },
-    { row: "C&C-TANG181NAD PROMOCAO", col: "TANG181NAD PROMOCAO", value: 0.44 },
-    { row: "C&C-TANG1815PROMOCAO", col: "TANG1815PROMOCAO", value: 0.36 },
-    { row: "C&C-TRIN625NAD PROMOCAO", col: "TRIN625NAD PROMOCAO", value: 3.99 },
-    { row: "Hyper-FRESH151NAD PROMOCAO", col: "FRESH151NAD PROMOCAO", value: 0.11 },
-    { row: "Hyper-MARATA301NAD PROMOCAO", col: "MARATA301NAD PROMOCAO", value: 1.12 },
-    { row: "Hyper-TANG181NAD PROMOCAO", col: "TANG181NAD PROMOCAO", value: 0.37 },
-    { row: "Hyper-TRIN625NAD PROMOCAO", col: "TRIN625NAD PROMOCAO", value: 0.51 },
+    { channel: "C&C", ppg: "FRISCO251NAD PROMOCAO", affectedChannel: "C&C", affectedPpg: "FRISCO251NAD PROMOCAO", value: 1.01 },
+    { channel: "C&C", ppg: "MARATA301NAD PROMOCAO", affectedChannel: "C&C", affectedPpg: "MARATA301NAD PROMOCAO", value: 0.74 },
+    { channel: "C&C", ppg: "TANG181NAD PROMOCAO", affectedChannel: "C&C", affectedPpg: "TANG181NAD PROMOCAO", value: 0.44 },
+    { channel: "C&C", ppg: "TANG1815 PROMOCAO", affectedChannel: "C&C", affectedPpg: "TANG1815 PROMOCAO", value: 0.36 },
+    { channel: "C&C", ppg: "TRIN625NAD PROMOCAO", affectedChannel: "C&C", affectedPpg: "TRIN625NAD PROMOCAO", value: 3.99 },
+    { channel: "Hyper", ppg: "FRESH151NAD PROMOCAO", affectedChannel: "Hyper", affectedPpg: "FRESH151NAD PROMOCAO", value: 0.11 },
+    { channel: "Hyper", ppg: "MARATA301NAD PROMOCAO", affectedChannel: "Hyper", affectedPpg: "MARATA301NAD PROMOCAO", value: 1.12 },
+    { channel: "Hyper", ppg: "TANG181NAD PROMOCAO", affectedChannel: "Hyper", affectedPpg: "TANG181NAD PROMOCAO", value: 0.37 },
+    { channel: "Hyper", ppg: "TRIN625NAD PROMOCAO", affectedChannel: "Hyper", affectedPpg: "TRIN625NAD PROMOCAO", value: 0.51 },
   ];
 
   return <HeatMap data={sampleData} />;

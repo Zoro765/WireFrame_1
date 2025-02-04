@@ -1,3 +1,4 @@
+//App.jsx
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from './components/common/Header/Header';
@@ -15,6 +16,12 @@ import { ProfitLoss } from './components/Descriptive/ProfitLoss';
 import { ModelEvaluation1 } from './components/Diagonistic/ModelEvaluation1';
 import { ModelEvaluation2 } from './components/Diagonistic/ModelEvaluation2';
 import { ModelResults } from './components/Diagonistic/Model Results';
+import { OptimizationGuide } from './components/PredictivePrescriptive/OptimizationGuide';
+import { TaskSummary } from './components/PredictivePrescriptive/TaskSummary';
+import { SimulationOptimization } from './components/PredictivePrescriptive/SimulationOptimization';
+import { ScenarioSummary } from './components/PredictivePrescriptive/ScenarioSummary';
+import { ScenarioReview } from './components/PredictivePrescriptive/ScenarioReview';
+
 
 function App() {
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
@@ -50,6 +57,16 @@ function App() {
                 <Route path="/Model-Evaluation-1" element={<ModelEvaluation1 />} />
                 <Route path="/Model-Evaluation-2" element={<ModelEvaluation2 />} />
                 <Route path="/Model-Results" element={<ModelResults />} />
+                {/*Predictive & Prescriptive*/}
+                <Route path= "/Optimization-Guide" element={<OptimizationGuide />} />
+                <Route path= "/Task-Summary" element={<TaskSummary />} />
+                <Route path= "/Simulation-Optimization" element={<SimulationOptimization />} />
+                <Route path= "/Scenario-Summary" element={<ScenarioSummary />} />
+                <Route path= "/Scenario-Overall-Results" element={<ScenarioReview />} />
+                <Route path= "/MFG-P&L-Waterfall" element={<ScenarioReview />} />
+                <Route path= "/MFG-P&L-Tabular-View" element={<ScenarioReview />} />
+                <Route path= "/Customer-Waterfall" element={<ScenarioReview />} />
+                <Route path= "/Customer-Tabular-View" element={<ScenarioReview />} />
               </Routes>
             </div>
 

@@ -44,7 +44,7 @@ export function ValueSalesChart() {
                 <Tooltip />
                 <Legend />
                 <Bar yAxisId="left" dataKey="sales" name="Value Sales" fill="#6B46C1" barSize={30} />
-                <Line yAxisId="right" type="monotone" dataKey="price" name="Avg Price Per Unit" stroke="#a219d4" strokeWidth={2} />
+                <Line yAxisId="right" type="monotone" dataKey="price" name="Avg Price Per Unit" stroke="#9F7AEA" strokeWidth={2} />
             </ComposedChart>
         </ResponsiveContainer>
     );

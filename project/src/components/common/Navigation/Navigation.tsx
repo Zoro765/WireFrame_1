@@ -1,3 +1,4 @@
+//Navigation.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
@@ -57,19 +58,19 @@ const navigationData: NavItem[] = [
     label: 'Predictive & Prescriptive',
     icon: <Target size={18} />,
     subItems: [
-      { label: 'Optimization Guide', icon: <Settings size={18} /> },
-      { label: 'Task Summary', icon: <ClipboardList size={18} /> },
-      { label: 'Simulation/Optimization', icon: <Calculator size={18} /> },
-      { label: 'Scenario Summary', icon: <Table size={18} /> },
+      { label: 'Optimization Guide', icon: <Settings size={18} />, path: '/Optimization-Guide' },
+      { label: 'Task Summary', icon: <ClipboardList size={18} />, path: '/Task-Summary' },
+      { label: 'Simulation/Optimization', icon: <Calculator size={18} />, path: '/Simulation-Optimization' },
+      { label: 'Scenario Summary', icon: <Table size={18} />, path: '/Scenario-Summary' },
       {
         label: 'Scenario Review',
         icon: <ArrowDownUp size={18} />,
         subItems: [
-          { label: 'Scenario Overall Results', icon: <BarChart3 size={18} /> },
-          { label: 'MFG P&L Waterfall', icon: <LineChart size={18} /> },
-          { label: 'MFG P&L Tabular View', icon: <Table size={18} /> },
-          { label: 'Customer Waterfall', icon: <LineChart size={18} /> },
-          { label: 'Customer Tabular View', icon: <Table size={18} /> },
+          { label: 'Scenario Overall Results', icon: <BarChart3 size={18} />, path: '/Scenario-Overall-Results' },
+          { label: 'MFG P&L Waterfall', icon: <LineChart size={18} />, path: '/MFG-P&L-Waterfall' },
+          { label: 'MFG P&L Tabular View', icon: <Table size={18} />, path: '/MFG-P&L-Tabular-View' },
+          { label: 'Customer Waterfall', icon: <LineChart size={18} />, path: '/Customer-Waterfall' },
+          { label: 'Customer Tabular View', icon: <Table size={18} />, path: '/Customer-Tabular-View' },
         ],
       },
     ],

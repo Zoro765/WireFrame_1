@@ -29,7 +29,7 @@ export function PriceEvaluationPatterns() {
           <div className="bg-gray-200 rounded-t p-4">
             <h2 className="text-sm font-semibold">Value Sales over Time & Avg Price Per Unit</h2>
           </div>
-          <div className="p-4 h-[250px] w-full">
+          <div className="p-4 h-[310px] w-full">
             <ValueSalesChart />
           </div>
         </div>
@@ -40,7 +40,7 @@ export function PriceEvaluationPatterns() {
           <div className="bg-gray-200 rounded-t p-4 ">
             <h2 className="text-sm font-semibold">Price Compliance Evolution by PPGs </h2>
           </div>
-          <div className="p-4 h-[250px] w-full">
+          <div className="p-4 h-[310px] w-full">
             <PriceComplianceChart />
           </div>
         </div>
@@ -50,7 +50,7 @@ export function PriceEvaluationPatterns() {
           <div className="bg-gray-200 rounded-t p-4">
             <h2 className="text-sm font-semibold">Value Sales - Price Incentive</h2>
           </div>
-          <div className="p-4 h-[250px] w-full">
+          <div className="p-4 h-[310px] w-full">
             <ValueSalesPriceIncentive />
           </div>
         </div>
