@@ -41,9 +41,10 @@ export function PriceComplianceChart() {
                      }} />
                 <Tooltip />
                 <Legend />
-                <Bar yAxisId="left" dataKey="avgPrice" name="Avg Price Per Unit" fill="#6B46C1" barSize={30} />
-                <Bar yAxisId="left" dataKey="strategicPrice" name="Strategic Price Per Unit" fill="#8B5CF6" barSize={30} />
-                <Scatter yAxisId="right" dataKey="compliance" name="Price Compliance" fill="#9F7AEA" />
+                <Bar yAxisId="left" dataKey="avgPrice" name="Avg Price Per Unit" fill="#655981" barSize={30} />
+                <Bar yAxisId="left" dataKey="strategicPrice" name="Strategic Price Per Unit" fill="#295F98" barSize={30} />
+                <Scatter yAxisId="right" dataKey="compliance" name="Price Compliance" fill="#B4765E
+" />
             </ComposedChart>
         </ResponsiveContainer>
     );
