@@ -7,7 +7,7 @@ export function ModelEvaluation2() {
   return (
     <div className="body-overlay overflow-hidden">
       {/* KPI Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 p-4 space-y-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 p-4 space-y-0">
         {kpiData.map((kpi, index) => (
           <KPICard key={index} {...kpi} />
         ))}
