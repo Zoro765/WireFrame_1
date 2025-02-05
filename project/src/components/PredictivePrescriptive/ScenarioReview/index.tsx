@@ -19,7 +19,7 @@ export function ScenarioReview() {
   return (
     <>
       {/* KPI Section */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
         {kpiData.map((kpi, index) => (
           <MetricCard key={index} {...kpi} />
         ))}
@@ -65,7 +65,7 @@ export function ScenarioReview() {
               <div className="bg-gray-200 rounded-t p-4">
                 <h2 className="text-sm font-semibold">Summary Changes</h2>
               </div>
-              <div className="p-4 h-[690px] w-full">
+              <div className="p-4 h-[620px] w-full">
                 <SummaryChangesChart />
               </div>
             </div>
@@ -75,7 +75,7 @@ export function ScenarioReview() {
               <div className="bg-gray-200 rounded-t p-4">
                 <h2 className="text-sm font-semibold">Count Products</h2>
               </div>
-              <div className="p-4 h-[670px] w-full">
+              <div className="p-4 h-[620px] w-full">
                 <CountProductsChart />
               </div>
             </div>
@@ -85,7 +85,7 @@ export function ScenarioReview() {
               <div className="bg-gray-200 rounded-t p-4">
                 <h2 className="text-sm font-semibold">Price Indexing</h2>
               </div>
-              <div className="p-4 h-[690px] w-full">
+              <div className="p-4 h-[620px] w-full">
                 <PriceIndexingChart />
               </div>
             </div>
