@@ -18,6 +18,17 @@ export function ScenarioReview() {
 
   return (
     <>
+      {/* Filter Info */}
+      <div className="text-lg front-bold text-gray-1000 mb-4">
+      Scelected Scenario Scope
+      </div>
+
+      <div className="text-xs text-gray-600 mb-4">
+      Year: 2021 | Quarter: All | Month: All | BU: Brazil | Region: All | Channel: All |
+      Manufacturer: All | Category: POWDERED BEVERAGES | (Available Date: 11/30/2020-11/30/2022)
+      | Brand: All | PPG: All
+      </div>
+
       {/* Tabs Navigation */}
       <div className="border-b border-gray-100">
         <nav className="-mb-px flex justify-start grid lg:grid-cols-6">
@@ -138,7 +149,7 @@ export function ScenarioReview() {
             <div className="bg-gray-200 rounded-t p-4">
               <h2 className="text-sm font-semibold">Decomposition EVA</h2>
             </div>
-            <div className="p-4 h-[300px] w-full">
+            <div className="p-4 h-[400px] w-full">
               <DecompositionEVAChart />
             </div>
           </div>

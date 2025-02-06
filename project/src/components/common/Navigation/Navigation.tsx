@@ -69,6 +69,7 @@ const navigationData: NavItem[] = [
           { label: 'Scenario Overall Results', icon: <BarChart3 size={18} />, path: '/Scenario-Overall-Results' },
           { label: 'MFG P&L Waterfall', icon: <LineChart size={18} />, path: '/MFG-P&L-Waterfall' },
           { label: 'MFG P&L Tabular View', icon: <Table size={18} />, path: '/MFG-P&L-Tabular-View' },
+          { label: 'Mix/EVA', icon: <LineChart size={18} />, path: '/MixEva' },
           { label: 'Customer Waterfall', icon: <LineChart size={18} />, path: '/Customer-Waterfall' },
           { label: 'Customer Tabular View', icon: <Table size={18} />, path: '/Customer-Tabular-View' },
         ],

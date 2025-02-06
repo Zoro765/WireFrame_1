@@ -65,6 +65,7 @@ function App() {
                 <Route path= "/Scenario-Overall-Results" element={<ScenarioReview />} />
                 <Route path= "/MFG-P&L-Waterfall" element={<ScenarioReview />} />
                 <Route path= "/MFG-P&L-Tabular-View" element={<ScenarioReview />} />
+                <Route path= "/MixEva" element={<ScenarioReview />} />
                 <Route path= "/Customer-Waterfall" element={<ScenarioReview />} />
                 <Route path= "/Customer-Tabular-View" element={<ScenarioReview />} />
               </Routes>
