@@ -1,4 +1,4 @@
-export const kpiData = [
+export const kpiDataSOR = [
   {
     mainLabel: 'Sell Out',
     value: '24,609,741',
@@ -33,6 +33,45 @@ export const kpiData = [
     mdlzValue: 'R$47,729,158',
     mdlzsubLabel: 'Profit (Mdlz)',
     mdlzYoyChange: 'Base: +R$46,003,834 (3.75%)',
+    mdlzIsPositive: true,
+  },
+];
+
+export const kpiDataMixEVA = [
+  {
+    mainLabel: 'Sell Out',
+    value: '201,948',
+    subLabel: 'Volume',
+    yoyLabel: 'Base: 208,819 (-3.29%)',
+    change: -3.29,
+    mdlzLabel: 'Sell In (Mdlz)',
+    mdlzValue: '30,292',
+    mdlzsubLabel: 'Volume (Mdlz)',
+    mdlzYoyChange: 'Base: 31,323 (-3.29%)',
+    mdlzIsPositive: false,
+  },
+  {
+    mainLabel: 'Sell Out',
+    value: 'R$280,326',
+    subLabel: 'Value',
+    yoyLabel: 'Base: -R$281,420 (-0.39%)',
+    change: 0.03,
+    mdlzLabel: 'Sell Out (Mdlz)',
+    mdlzValue: 'R$899,434',
+    mdlzsubLabel: 'Value (Mdlz)',
+    mdlzYoyChange: 'Base: -R$902,944 (-0.39%)',
+    mdlzIsPositive: false,
+  },
+  {
+    mainLabel: 'Avg Price',
+    value: 'R$1.39',
+    subLabel: 'Profit',
+    yoyLabel: 'Base: +R$1.35 (3.00%)',
+    change: 2.91,
+    mdlzLabel: 'Avg Price (Mdlz)',
+    mdlzValue: 'R$478,708',
+    mdlzsubLabel: 'Profit (Mdlz)',
+    mdlzYoyChange: 'Base: +R$467,905 (2.31%)',
     mdlzIsPositive: true,
   },
 ];

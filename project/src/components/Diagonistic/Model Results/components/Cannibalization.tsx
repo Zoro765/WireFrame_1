@@ -103,15 +103,19 @@ const HeatMap = ({ data }) => {
 
 export function Cannibalization() {
   const sampleData = [
-    { channel: "C&C", ppg: "FRISCO251NAD PROMOCAO", affectedChannel: "C&C", affectedPpg: "FRISCO251NAD PROMOCAO", value: 1.01 },
-    { channel: "C&C", ppg: "MARATA301NAD PROMOCAO", affectedChannel: "C&C", affectedPpg: "MARATA301NAD PROMOCAO", value: 0.74 },
-    { channel: "C&C", ppg: "TANG181NAD PROMOCAO", affectedChannel: "C&C", affectedPpg: "TANG181NAD PROMOCAO", value: 0.44 },
-    { channel: "C&C", ppg: "TANG1815 PROMOCAO", affectedChannel: "C&C", affectedPpg: "TANG1815 PROMOCAO", value: 0.36 },
-    { channel: "C&C", ppg: "TRIN625NAD PROMOCAO", affectedChannel: "C&C", affectedPpg: "TRIN625NAD PROMOCAO", value: 3.99 },
-    { channel: "Hyper", ppg: "FRESH151NAD PROMOCAO", affectedChannel: "Hyper", affectedPpg: "FRESH151NAD PROMOCAO", value: 0.11 },
-    { channel: "Hyper", ppg: "MARATA301NAD PROMOCAO", affectedChannel: "Hyper", affectedPpg: "MARATA301NAD PROMOCAO", value: 1.12 },
-    { channel: "Hyper", ppg: "TANG181NAD PROMOCAO", affectedChannel: "Hyper", affectedPpg: "TANG181NAD PROMOCAO", value: 0.37 },
-    { channel: "Hyper", ppg: "TRIN625NAD PROMOCAO", affectedChannel: "Hyper", affectedPpg: "TRIN625NAD PROMOCAO", value: 0.51 },
+    { channel: "C&C", ppg: "FRISCO251NAD PROMOCAO", affectedChannel: "C&C", affectedPpg: "MARATA301NAD PROMOCAO", value: 1.01 },
+    { channel: "C&C", ppg: "FRISCO251NAD PROMOCAO", affectedChannel: "Hyper", affectedPpg: "TANG181NAD PROMOCAO", value: 1.36 },
+    { channel: "C&C", ppg: "MARATA301NAD PROMOCAO", affectedChannel: "C&C", affectedPpg: "FRISCO251NAD PROMOCAO", value: 0.74 },
+    { channel: "C&C", ppg: "MARATA301NAD PROMOCAO", affectedChannel: "Hyper", affectedPpg: "MARATA301NAD PROMOCAO", value: 0.85 },
+    { channel: "C&C", ppg: "TANG181NAD PROMOCAO", affectedChannel: "C&C", affectedPpg: "MARATA301NAD PROMOCAO", value: 0.44 },
+    { channel: "C&C", ppg: "TANG181NAD PROMOCAO", affectedChannel: "Hyper", affectedPpg: "FRISCO251NAD PROMOCAO", value: 0.14 },
+    { channel: "C&C", ppg: "TANG1815 PROMOCAO", affectedChannel: "C&C", affectedPpg: "TRIN625NAD PROMOCAO", value: 0.3 },
+    { channel: "C&C", ppg: "TRIN625NAD PROMOCAO", affectedChannel: "C&C", affectedPpg: "TANG1815 PROMOCAO", value: 2.99 },
+    { channel: "Hyper", ppg: "FRESH151NAD PROMOCAO", affectedChannel: "C&C", affectedPpg: "MARATA301NAD PROMOCAO", value: 0.11 },
+    { channel: "Hyper", ppg: "MARATA301NAD PROMOCAO", affectedChannel: "C&C", affectedPpg: "FRISCO251NAD PROMOCAO", value: 1.12 },
+    { channel: "Hyper", ppg: "MARATA301NAD PROMOCAO", affectedChannel: "Hyper", affectedPpg: "TRIN625NAD PROMOCAO", value: 1.12 },
+    { channel: "Hyper", ppg: "TANG181NAD PROMOCAO", affectedChannel: "C&C", affectedPpg: "MARATA301NAD PROMOCAO", value: 0.37 },
+    { channel: "Hyper", ppg: "TRIN625NAD PROMOCAO", affectedChannel: "C&C", affectedPpg: "TRIN625NAD PROMOCAO", value: 0.51 },
   ];
 
   return <HeatMap data={sampleData} />;
