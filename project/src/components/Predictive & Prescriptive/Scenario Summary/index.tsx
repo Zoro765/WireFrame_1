@@ -1,6 +1,5 @@
 
 import { ScenarioChart } from './components/ScenarioComparision';
-import ScenarioStatusChart from './components/ScenarioStatus';
 import ScenarioTableChart from './components/ScenarioTable';
 
 
@@ -27,22 +26,12 @@ export function ScenarioSummary() {
           </div>
         </div>
   
-        {/* 1/4 Width Chart */}
-        <div className="lg:col-span-1 bg-white rounded shadow-sm">
-          <div className="bg-gray-200 rounded-t p-4">
-          <h1 className="text-lg font-semibold mb-2 text-center">Scenario Status</h1>
-          </div>
-          <div className="p-4 h-[430px] w-full">
-            <ScenarioStatusChart />
-          </div>
-        </div>
-  
         {/* 3/4 Width Chart */}
-        <div className="lg:col-span-3 bg-white rounded shadow-sm">
+        <div className="lg:col-span-4 bg-white rounded shadow-sm">
           <div className="bg-gray-200 rounded-t p-4">
           <h1 className="text-lg font-semibold mb-2 text-center">Scenario Comparision</h1>
           </div>
-          <div className="p-4 h-[320px] w-full">
+          <div className="p-4 h-[436px] w-full">
             <ScenarioChart />
           </div>
         </div>

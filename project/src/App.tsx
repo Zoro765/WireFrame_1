@@ -16,6 +16,7 @@ import { ModelEvaluation1 } from './components/Diagnostic/Model Evaluation 1';
 import { ModelEvaluation2 } from './components/Diagnostic/Model Evaluation 2';
 import { ModelResults } from './components/Diagnostic/Model Results';
 import { ScenarioSummary } from './components/Predictive & Prescriptive/Scenario Summary';
+import { ScenarioReview } from './components/Predictive & Prescriptive/Scenario Review';
 
 function App() {
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
@@ -56,8 +57,11 @@ function App() {
                 {/* <Route path="/optimization-guide" element={<OptimizationGuide />} /> */}
                 {/* <Route path="/scenario-summary" element={<ScenarioReview />} /> */}
                 <Route path="/scenario-summary" element={<ScenarioSummary />} />
-                {/* <Route path="/scenario-summary" element={<Simulation />} /> */}
-                {/* <Route path="/scenario-summary" element={<TaskSummary />} /> */}
+                <Route path= "/Scenario-Overall-Results" element={<ScenarioReview />} />
+                <Route path= "/MFG-P&L-Waterfall" element={<ScenarioReview />} />
+                <Route path= "/MFG-P&L-Tabular-View" element={<ScenarioReview />} />
+                <Route path= "/customer-waterfall" element={<ScenarioReview />} />
+                <Route path= "/Customer-Tabular-View" element={<ScenarioReview />} />
 
               </Routes>
             </div>

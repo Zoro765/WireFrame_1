@@ -1,17 +1,35 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export function Filters({ isVisible, toggleVisibility }) {
+  const filterRef = useRef(null);
+
+  // Close the filter panel when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (filterRef.current && !filterRef.current.contains(event.target)) {
+        toggleVisibility(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [toggleVisibility]);
+
   return (
-    <div className="fixed right-0 top-1/8 transition-all duration-300 z-50">
-      <div
-        className={`flex transition-all duration-300 ${
-          isVisible ? 'translate-x-0' : 'translate-x-[calc(100%-2.5rem)]'
-        }`}
-      >
+    <div
+      ref={filterRef}
+      className="fixed right-0 top-1/8 transition-all duration-300 z-50"
+      style={{ transform: isVisible ? 'translateX(0)' : 'translateX(calc(100% - 40px))' }} // 40px = width of the button
+    >
+      {/* Entire sliding container (button + panel) */}
+      <div className="flex">
+        {/* Filter Button (part of the sliding container) */}
         <div
           className="bg-purple-900 p-2 text-white cursor-pointer rounded-l-lg shadow-md hover:bg-purple-800 transition-colors duration-200 flex items-center justify-center"
           style={{ width: '40px', height: '40px' }}
-          onClick={() => toggleVisibility(!isVisible)} // Toggle visibility on click
+          onClick={() => toggleVisibility((prev) => !prev)}
         >
           <svg
             width="24"
@@ -23,9 +41,12 @@ export function Filters({ isVisible, toggleVisibility }) {
             <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
           </svg>
         </div>
+
+        {/* Filter Panel */}
         <div className="bg-white shadow-lg w-64 p-4 overflow-y-auto" style={{ maxHeight: '80vh' }}>
           <h3 className="font-semibold text-purple-900 mb-4">Filters</h3>
           <div className="space-y-4" style={{ maxHeight: 'calc(80vh - 100px)', overflowY: 'auto' }}>
+            {/* ... Your existing filter content ... */}
             <div className="flex flex-col">
               <label className="text-sm text-gray-600 mb-1">Year</label>
               <select className="border rounded-md px-2 py-1 text-sm">
@@ -109,8 +130,6 @@ export function Filters({ isVisible, toggleVisibility }) {
                 <option>Market Share</option>
               </select>
             </div>
-
-            {/* Reset Filters Button at the Bottom of the Filters Sidebar */}
             <div className="mt-4">
               <button className="w-full px-4 py-2 bg-gray-100 text-sm rounded hover:bg-gray-200">
                 Reset Filters
@@ -119,6 +138,6 @@ export function Filters({ isVisible, toggleVisibility }) {
           </div>
         </div>
       </div>
-    </div>
+  </div>
   );
 }

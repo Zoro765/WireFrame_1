@@ -48,28 +48,28 @@ const navigationData: NavItem[] = [
     label: 'Diagnostic',
     icon: <Brain size={18} />,
     subItems: [
-      { label: 'Model Evaluation 1', icon: <GanttChart size={18} />,path: '/model-evaluation-1' },
-      { label: 'Model Evaluation 2', icon: <BarChart2 size={18} />,path: '/model-evaluation-2' },
-      { label: 'Model Results', icon: <CircleDot size={18} />,path: '/model-results' },
+      { label: 'Model Evaluation 1', icon: <GanttChart size={18} />, path: '/model-evaluation-1' },
+      { label: 'Model Evaluation 2', icon: <BarChart2 size={18} />, path: '/model-evaluation-2' },
+      { label: 'Model Results', icon: <CircleDot size={18} />, path: '/model-results' },
     ],
   },
   {
     label: 'Predictive & Prescriptive',
     icon: <Target size={18} />,
     subItems: [
-      { label: 'Optimization Guide', icon: <Settings size={18} />,path: '/optimization-guide' },
-      { label: 'Task Summary', icon: <ClipboardList size={18} /> ,path: '/task-summary'},
-      { label: 'Simulation/Optimization', icon: <Calculator size={18} />,path: '/simulation-optimization'},
-      { label: 'Scenario Summary', icon: <Table size={18} />,path: '/scenario-summary' },
+      { label: 'Optimization Guide', icon: <Settings size={18} />, path: '/optimization-guide' },
+      { label: 'Task Summary', icon: <ClipboardList size={18} />, path: '/task-summary' },
+      { label: 'Simulation/Optimization', icon: <Calculator size={18} />, path: '/simulation-optimization' },
+      { label: 'Scenario Summary', icon: <Table size={18} />, path: '/scenario-summary' },
       {
         label: 'Scenario Review',
-        icon: <ArrowDownUp size={18} />,path: '/scenario-review',
+        icon: <ArrowDownUp size={18} />,
         subItems: [
-          { label: 'Scenario Overall Results', icon: <BarChart3 size={18} /> },
-          { label: 'MFG P&L Waterfall', icon: <LineChart size={18} /> },
-          { label: 'MFG P&L Tabular View', icon: <Table size={18} /> },
-          { label: 'Customer Waterfall', icon: <LineChart size={18} /> },
-          { label: 'Customer Tabular View', icon: <Table size={18} /> },
+          { label: 'Scenario Overall Results', icon: <BarChart3 size={18} />, path: '/scenario-overall-results' },
+          { label: 'MFG P&L Waterfall', icon: <LineChart size={18} />, path: '/mfg-pl-waterfall' },
+          { label: 'MFG P&L Tabular View', icon: <Table size={18} />, path: '/mfg-pl-tabular' },
+          { label: 'Customer Waterfall', icon: <LineChart size={18} />, path: '/customer-waterfall' },
+          { label: 'Customer Tabular View', icon: <Table size={18} />, path: '/customer-tabular' },
         ],
       },
     ],
@@ -175,32 +175,36 @@ export function Navigation() {
 }
 
 
+
+
 // import React, { useState } from 'react';
-// import { 
-//   ChevronDown, 
-//   ChevronRight, 
-//   BarChart3, 
-//   LineChart, 
-//   PieChart, 
-//   GanttChart, 
-//   BarChart2, 
-//   CircleDot, // Changed from PieChart3 to CircleDot
-//   Map, 
-//   DollarSign, 
-//   ShoppingCart, 
-//   Calculator, 
-//   Brain, 
-//   Target, 
-//   ClipboardList, 
-//   Settings, 
-//   Table, 
-//   ArrowDownUp, 
-//   MenuIcon 
+// import { Link } from 'react-router-dom';
+// import {
+//   ChevronDown,
+//   ChevronRight,
+//   BarChart3,
+//   LineChart,
+//   PieChart,
+//   GanttChart,
+//   BarChart2,
+//   CircleDot,
+//   Map,
+//   DollarSign,
+//   ShoppingCart,
+//   Calculator,
+//   Brain,
+//   Target,
+//   ClipboardList,
+//   Settings,
+//   Table,
+//   ArrowDownUp,
+//   MenuIcon,
 // } from 'lucide-react';
 
 // interface NavItem {
 //   label: string;
 //   icon: React.ReactNode;
+//   path?: string; // Add path for routing
 //   subItems?: NavItem[];
 // }
 
@@ -209,13 +213,15 @@ export function Navigation() {
 //     label: 'Descriptive',
 //     icon: <BarChart3 size={18} />,
 //     subItems: [
-//       { label: 'Executive Summary', icon: <LineChart size={18} /> },
-//       { label: 'Category Summary', icon: <PieChart size={18} /> },
-//       { label: 'Regional Summary', icon: <Map size={18} /> },
-//       { label: 'Price - Market Landscape', icon: <DollarSign size={18} /> },
-//       { label: 'Price & Distribution', icon: <ShoppingCart size={18} /> },
-//       { label: 'P&L', icon: <Calculator size={18} /> }
-//     ]
+//       { label: 'Executive Summary', icon: <LineChart size={18} />, path: '/executive-summary' },
+//       { label: 'Category Summary', icon: <PieChart size={18} />, path: '/category-summary' },
+//       { label: 'Regional Summary', icon: <Map size={18} />, path: '/regional-summary' },
+//       { label: 'Price - Market Landscape', icon: <DollarSign size={18} />, path: '/price-market-landscape' },
+//       { label: 'Price & Distribution', icon: <ShoppingCart size={18} />, path: '/price-distribution' },
+//       { label: 'Price Evaluation', icon: <Calculator size={18} />, path: '/price-evaluation' },
+//       { label: 'Price Evaluation (Patterns)', icon: <Calculator size={18} />, path: '/price-evaluation-patterns' },
+//       { label: 'P&L', icon: <Calculator size={18} />, path: '/profit-loss' },
+//     ],
 //   },
 //   {
 //     label: 'Diagnostic',
@@ -223,8 +229,8 @@ export function Navigation() {
 //     subItems: [
 //       { label: 'Model Evaluation 1', icon: <GanttChart size={18} /> },
 //       { label: 'Model Evaluation 2', icon: <BarChart2 size={18} /> },
-//       { label: 'Model Results', icon: <CircleDot size={18} /> } // Changed icon here
-//     ]
+//       { label: 'Model Results', icon: <CircleDot size={18} /> },
+//     ],
 //   },
 //   {
 //     label: 'Predictive & Prescriptive',
@@ -242,11 +248,11 @@ export function Navigation() {
 //           { label: 'MFG P&L Waterfall', icon: <LineChart size={18} /> },
 //           { label: 'MFG P&L Tabular View', icon: <Table size={18} /> },
 //           { label: 'Customer Waterfall', icon: <LineChart size={18} /> },
-//           { label: 'Customer Tabular View', icon: <Table size={18} /> }
-//         ]
-//       }
-//     ]
-//   }
+//           { label: 'Customer Tabular View', icon: <Table size={18} /> },
+//         ],
+//       },
+//     ],
+//   },
 // ];
 
 // interface NavItemProps {
@@ -262,25 +268,48 @@ export function Navigation() {
 
 //   return (
 //     <div>
-//       <button
-//         onClick={() => setIsOpen(!isOpen)}
-//         className={`w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 transition-colors ${
-//           !isExpanded ? 'justify-center' : ''
-//         }`}
-//         style={{ paddingLeft: isExpanded ? paddingLeft : undefined }}
-//       >
-//         <span className="flex-shrink-0">{item.icon}</span>
-//         {isExpanded && (
-//           <>
-//             <span className="flex-grow text-left">{item.label}</span>
-//             {hasSubItems && (
-//               <span className="flex-shrink-0">
-//                 {isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-//               </span>
-//             )}
-//           </>
-//         )}
-//       </button>
+//       {item.path ? (
+//         <Link
+//           to={item.path}
+//           className={`w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 transition-colors ${
+//             !isExpanded ? 'justify-center' : ''
+//           }`}
+//           style={{ paddingLeft: isExpanded ? paddingLeft : undefined }}
+//         >
+//           <span className="flex-shrink-0">{item.icon}</span>
+//           {isExpanded && (
+//             <>
+//               <span className="flex-grow text-left">{item.label}</span>
+//               {hasSubItems && (
+//                 <span className="flex-shrink-0">
+//                   {isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+//                 </span>
+//               )}
+//             </>
+//           )}
+//         </Link>
+//       ) : (
+//         <button
+//           onClick={() => setIsOpen(!isOpen)}
+//           className={`w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-900 transition-colors ${
+//             !isExpanded ? 'justify-center' : ''
+//           }`}
+//           style={{ paddingLeft: isExpanded ? paddingLeft : undefined }}
+//         >
+//           <span className="flex-shrink-0">{item.icon}</span>
+//           {isExpanded && (
+//             <>
+//               <span className="flex-grow text-left">{item.label}</span>
+//               {hasSubItems && (
+//                 <span className="flex-shrink-0">
+//                   {isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+//                 </span>
+//               )}
+//             </>
+//           )}
+//         </button>
+//       )}
+
 //       {isExpanded && isOpen && hasSubItems && (
 //         <div className="ml-4">
 //           {item.subItems.map((subItem, index) => (
@@ -298,7 +327,7 @@ export function Navigation() {
 // }
 
 // export function Navigation() {
-//   const [isExpanded, setIsExpanded] = useState(false); // Internal state for expanded/collapsed
+//   const [isExpanded, setIsExpanded] = useState(false);
 
 //   return (
 //     <div
