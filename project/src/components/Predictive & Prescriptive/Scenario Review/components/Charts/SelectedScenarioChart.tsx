@@ -57,15 +57,27 @@ const SelectedScenarioChart: React.FC<SelectedScenarioChartProps> = ({ rawData, 
     title: `Selected Scenario (${viewMode})`,
     height: 650,
     width: 1300, // Same width as BaseScenarioChart
-    margin: { l: 50, r: 50, t: 50, b: 200 },
+    margin: { l: 80, r: 50, t: 50, b: 200 }, // Adjusted left margin for y-axis labels
     xaxis: {
       tickangle: 0,
       tickmode: "array",
       tickvals: labels.map((_, i) => i),
       ticktext: labels.map((label) => label.split(" ").join("<br>")), // Multi-line labels
       tickfont: { size: 12 },
+      showgrid: false, // No x-axis grid lines
+      zeroline: false, // No zero line
+      showline: true, // Show only the main x-axis line
+      linecolor: "black",
     },
-    yaxis: { visible: false },
+    yaxis: {
+      title: "Value",
+      titlefont: { size: 14 },
+      tickformat: ",", // Adds commas to large numbers
+      showgrid: false, // No y-axis grid lines
+      zeroline: false, // No zero line
+      showline: true, // Show only the main y-axis line
+      linecolor: "black",
+    },
     showlegend: false,
     bargap: 0.1, // Maintain similar spacing as BaseScenarioChart
   };
