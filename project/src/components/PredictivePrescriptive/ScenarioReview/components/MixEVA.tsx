@@ -38,8 +38,7 @@ import {
           <div className="w-1/4 border-r border-gray-300">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={decompositionEVAData} layout="vertical" margin={{ top: 5, right: 10, left: 60, bottom: 5 }}>
-                
-                <XAxis type="number" domain={[-30000, 0]} tickFormatter={(value) => `${Math.abs(value/1000)}k`} tickCount={6} />
+                <XAxis type="number" domain={[-30000, 0]} tickFormatter={(value) => `${value/1000}k`} tickCount={6} />
                 <YAxis type="category" dataKey="metric" interval={0} />
                 <Tooltip />
                 <Legend wrapperStyle={{ bottom: -10 }} />
