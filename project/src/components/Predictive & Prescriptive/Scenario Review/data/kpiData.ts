@@ -33,7 +33,7 @@ export const kpiData = [
     mdlzLabel: 'Gross Profit',
   },
   {
-    mainLabel: 'Sell Out Volume',
+    mainLabel: 'Sell In Volume',
     subLabel: 'Volume',
     value: '5,044,922',
     yoyLabel: 'Base: 5,183,890',

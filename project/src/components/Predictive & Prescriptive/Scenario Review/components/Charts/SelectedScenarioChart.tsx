@@ -43,13 +43,19 @@ const SelectedScenarioChart: React.FC<SelectedScenarioChartProps> = ({ rawData, 
     cumulative += value;
   });
 
+  // Format numbers in compact form ONLY for 'total' view
+  const formatNumber = (num: number) =>
+    viewMode === "total"
+      ? new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(num)
+      : num.toLocaleString("en-US");
+
   const trace = {
     type: "bar",
     x: xValues,
     y: yValues,
     base: baseValues,
     marker: { color: colors },
-    text: yValues.map((v) => `$${v.toLocaleString("en-US")}`),
+    text: yValues.map((v) => `$${formatNumber(v)}`),
     textposition: "outside",
   };
 

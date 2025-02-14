@@ -43,13 +43,17 @@ const BaseScenarioChart: React.FC<BaseScenarioChartProps> = ({ rawData, viewMode
     cumulative += value;
   });
 
+  // Format numbers into a more compact format (e.g., 100K instead of 100,000)
+  const formatNumber = (num: number) =>
+    new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(num);
+
   const trace = {
     type: "bar",
     x: xValues,
     y: yValues,
     base: baseValues,
     marker: { color: colors },
-    text: yValues.map((v) => `$${v.toLocaleString("en-US")}`),
+    text: yValues.map((v) => `$${formatNumber(v)}`),
     textposition: "outside",
   };
 
