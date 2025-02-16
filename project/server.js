@@ -16,7 +16,11 @@ app.use(express.json());
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false },
+  max: 10, // Allow up to 10 connections
+  idleTimeoutMillis: 30000, // 30 seconds before closing idle connections
+  connectionTimeoutMillis: 20000, // 20 seconds before failing
 });
+
 
 // Route to fetch KPI data
 app.get('/api/kpis', async (req, res) => {
