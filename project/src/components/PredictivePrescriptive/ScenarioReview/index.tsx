@@ -1,11 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MetricCard } from './components/KPICard';
-import { kpiDataSOR, kpiDataMixEVA } from './data/kpiData';
+import { kpiDataMixEVA } from './data/kpiDataMixEVA';
+import { kpiDataSOR } from './data/kpiDataSOR';
 import { SummaryChangesChart, CountProductsChart, PriceIndexingChart } from './components/OverallResult';
 import { ProductMixChart, DecompositionEVAChart } from './components/MixEVA';
 
 export function ScenarioReview() {
   const [activeTab, setActiveTab] = useState('ScenarioOverallResults');
+  const [kpiData, setKpiData] = useState([]); // State to store KPI data
+
+  useEffect(() => {
+    // Fetch KPI data from API
+    fetch('http://localhost:5000/api/kpis')
+      .then((response) => response.json())
+      .then((data) => {
+        // Ensure 'change' is a number
+        const formattedData = data.map((item) => ({
+          ...item,
+          change: parseFloat(item.change),
+        }));
+        setKpiData(formattedData);
+      })
+      .catch((error) => console.error('Error fetching KPI data:', error));
+  }, []);
+
+  const [kpiDatamixeva, setKpiDatamixeva] = useState([]); // State to store KPI data
+
+  useEffect(() => {
+    // Fetch KPI data from API
+    fetch('http://localhost:5000/api/kpis_mix_eva')
+      .then((response) => response.json())
+      .then((data) => {
+        // Ensure 'change' is a number
+        const formattedData = data.map((item) => ({
+          ...item,
+          change: parseFloat(item.change),
+        }));
+        setKpiDatamixeva(formattedData);
+      })
+      .catch((error) => console.error('Error fetching KPI data:', error));
+  }, []);
+
 
   const tabs = [
     { id: 'ScenarioOverallResults', label: 'Scenario Overall Results' },
@@ -57,7 +92,7 @@ export function ScenarioReview() {
         <>
           {/* KPI Section */}
           <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-            {kpiDataSOR.map((kpi, index) => (
+            {kpiData.map((kpi, index) => (
               <MetricCard key={index} {...kpi} />
             ))}
           </section>
@@ -120,7 +155,7 @@ export function ScenarioReview() {
         <>
         {/* KPI Section */}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-          {kpiDataMixEVA.map((kpi, index) => (
+          {kpiDatamixeva.map((kpi, index) => (
             <MetricCard key={index} {...kpi} />
           ))}
         </section>

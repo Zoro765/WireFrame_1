@@ -1,5 +1,5 @@
 export const kpiData = [
-  {
+{
     mainLabel: 'Sell Out',
     value: '348,940K',
     subLabel: 'Volume',
@@ -11,7 +11,7 @@ export const kpiData = [
     mdlzYoyChange: 'YoY: -28,195K (-13.43%)',
     mdlzIsPositive: false,
   },
-  {
+{
     mainLabel: 'Sell Out',
     value: 'R$302,631K',
     subLabel: 'Value',
