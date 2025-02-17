@@ -1,21 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { KPICard } from './components/KPICard';
 import { VolumeMarketShare } from './components/VolumeMarketShare';
 import { ValueSalesQuarter } from './components/ValueSalesQuarter';
 import { RegionalSummary } from './components/RegionalSummary';
 import { ChannelDistribution } from './components/ChannelDistribution';
 import { PerformanceOverTime } from './components/PerformanceOverTime';
-import { kpiData } from './data/kpiData';
+// import { kpiData } from './data/kpiData';
+import { fetchKPIs } from './data/kpiData';
 
 export function ExecutiveSummary() {
+
+  const [kpis, setKpis] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    fetchKPIs()
+      .then(data => {
+        setKpis(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        setError('Failed to load KPIs');
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <div className="text-center p-4">Loading...</div>;
+  if (error) return <div className="text-red-500 text-center p-4">{error}</div>;
+
   return (
     <>
       {/* KPI Section */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+      {/* <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
         {kpiData.map((kpi, index) => (
           <KPICard key={index} {...kpi} />
         ))}
-      </section>
+      </section> */}
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
+      {kpis.map((kpi, index) => (
+        <KPICard key={index} {...kpi} />
+      ))}
+    </section>
 
       {/* Filter Info */}
       <div className="text-xs text-gray-600 mb-4">
